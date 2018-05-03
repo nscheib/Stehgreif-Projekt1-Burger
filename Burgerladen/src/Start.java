@@ -12,8 +12,12 @@ public class Start {
 		*/
 		Zutat zutat = new Zutat();
 		zutat.vorgegebeneBroetchen();
+		zutat.vorgegebeneBratlinge();
+		zutat.vorgegebenesGemuese();
+		zutat.vorgegebeneSalate();
+		zutat.vorgegebeneSaucen();
 		Bestellung eins = new Bestellung();
-		eins.hamburger(zutat);
+		eins.bestellBeginn();
 	}
 
 }
