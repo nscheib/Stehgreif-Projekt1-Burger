@@ -26,5 +26,9 @@ public class Bratlinge extends ZutatenErsteller{
 			}			
 		}while (korrekt);
 	}
+	
+	public int getBreiteBratling() {
+		return breite;	
+	}
 
 }

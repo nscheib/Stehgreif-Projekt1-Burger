@@ -7,6 +7,13 @@ public class Zutat {
 	private static int anzahlSaucenSorten = 5;
 	private static int anzahlBratlingSorten = 5;
 	private static int anzahlGemueseSorten = 5;
+	private int burger1[][];
+	private int burger2[][];
+	private int burger3[][];
+	private int burger4[][];
+	private int burger5[][];
+	private int burger6[][];
+	private int burger7[][];
 	private static Broetchen [] broetchenListe = new Broetchen [anzahlBroetchenSorten];
 	private static Salate [] salatListe = new Salate [anzahlSalatSorten];
 	private static Saucen [] saucenListe = new Saucen [anzahlSaucenSorten];
@@ -16,10 +23,10 @@ public class Zutat {
 	
 	public void vorgegebeneBroetchen() {
 		//bitter, fett, salzig, sauer, scharf, suess, umami, normal
-		String [] geschmackHamburger = {null, "Fett", null, null, null, null, "Suess", null, "normal"};
-		String [] geschmackSesam = {null, "Fett", null, null, null, null, "Suess", null, null};
-		String [] geschmackVegan = {null, null, "Salzig", null, null, null, null, null, null};
-		String [] geschmackCiabatta = {null, "Fett", null, null, null, null, null, null, null}; 
+		String [] geschmackHamburger = {"Fett", "Suess", "Normal"};
+		String [] geschmackSesam = {"Fett", "Suess"};
+		String [] geschmackVegan = {"Salzig"};
+		String [] geschmackCiabatta = {"Fett"}; 
 		//breite, preis, vegetarisch, geschmack, zubereitungsDauer, name
 		Broetchen hamburgerBroetchen = new Broetchen (27, 0.85, 2, 90l, geschmackHamburger, "Hamburger Broetchen");
 		Broetchen sesamBroetchen = new Broetchen (28, 0.95, 2, 90l, geschmackSesam, "Sesam Broetchen......");
@@ -32,8 +39,8 @@ public class Zutat {
 	}
 	
 	public void vorgegebeneSalate() {
-		String [] geschmackEisberg = {null, null, null, null, null, null, null, null, "normal"};
-		String [] geschmackRucola = {null, null, null, null, null, null, null, null, "normal"};
+		String [] geschmackEisberg = {"Normal"};
+		String [] geschmackRucola = {"Bitter"};
 		Salate eisbergSalat = new Salate (5, 0.18, 2, 5l, geschmackEisberg, "Eisbergsalat");
 		Salate rucolaSalat = new Salate (3, 0.25, 2, 3l, geschmackRucola, "Rucolasalat");
 		salatListe[0] = eisbergSalat;
@@ -41,10 +48,10 @@ public class Zutat {
 	}
 	
 	public void vorgegebeneSaucen() {
-		String [] geschmackKetchup = {null, null, null, null, null, "suess", null, "normal"}; 
-		String [] geschmackSandwichSauce = {null, "fett", null, null, null, "suess", null, null};
-		String [] geschmackChiliSauce = {null, null, null, null, "scharf", null, null, null};
-		String [] geschmackHonigSenfSauce = {null, null, null, null, "scharf", "suess", null, null};
+		String [] geschmackKetchup = {"Suess", "Normal"}; 
+		String [] geschmackSandwichSauce = {"Fett", "Suess"};
+		String [] geschmackChiliSauce = {"Scharf"};
+		String [] geschmackHonigSenfSauce = {"Scharf", "Suess"};
 		Saucen ketchup = new Saucen (0.1, 2, 1l, geschmackKetchup, "Ketchup");
 		Saucen sandwichSauce = new Saucen (0.15, 1, 1l, geschmackSandwichSauce,"Sandwich-Sauce");
 		Saucen chiliSauce = new Saucen (0.25, 2, 1l, geschmackChiliSauce, "Chili-Sauce");
@@ -56,10 +63,10 @@ public class Zutat {
 	}
 	
 	public void vorgegebeneBratlinge() {
-		String [] geschmackPferdefleisch = {null, "fett", null, null, null, null, "umami", "normal"}; // Einkaufspreis 0.20
-		String [] geschmackHaenchenfleisch = {null, null, null, null, null, null, "umami", null};
-		String [] geschmackFalafel = {null, null, null, null, "scharf", "suess", null, null};
-		String [] geschmackGemueseBratling = {"bitter", null, "salzig", "sauer", null, null, null, null};
+		String [] geschmackPferdefleisch = {"Fett", "Umami", "Normal"}; // Einkaufspreis 0.20
+		String [] geschmackHaenchenfleisch = {"Umami"};
+		String [] geschmackFalafel = {"Scharf", "Suess"};
+		String [] geschmackGemueseBratling = {"Bitter", "Salzig", "Sauer"};
 		Bratlinge pferdeFleisch = new Bratlinge (27, 1.85, 0, 270l, geschmackPferdefleisch, "Rindfleisch (original)");
 		Bratlinge haenchenFleisch = new Bratlinge (11, 1.15, 0, 180l, geschmackHaenchenfleisch, "Haenchenfleisch gegrillt");
 		Bratlinge falafel = new Bratlinge (21, 1.45, 2, 210l, geschmackFalafel,"Falafel-Bratling");
@@ -72,10 +79,10 @@ public class Zutat {
 	
 	public void vorgegebenesGemuese() {
 								//bitter, fett, sauer, scharf, suess, umami, normal
-		String [] geschmackTomate = {null, null, null, "sauer", null, "suess", null, "normal"}; 
-		String [] geschmackSalzGurke = {null, null, "salzig", null, null, null, null, "normal"};  
-		String [] geschmackZwiebelRinge = {null, null, null, "sauer", null, null, null, "normal"};
-		String [] geschmackJalapeno = {null, null, null, "sauer", "scharf", null, null, null};
+		String [] geschmackTomate = {"Sauer","Suess", "Normal"}; 
+		String [] geschmackSalzGurke = {"Salzig"};  
+		String [] geschmackZwiebelRinge = {"Sauer"};
+		String [] geschmackJalapeno = {"Sauer", "Scharf"};
 		Gemuese tomate = new Gemuese (3, 0.25, 2, 3l, geschmackTomate, "Tomate");
 		Gemuese salzGurke = new Gemuese (2, 0.15, 2, 4l, geschmackSalzGurke, "Salzgurke");
 		Gemuese zwiebelRinge = new Gemuese (2, 0.08, 2, 5l, geschmackZwiebelRinge, "Rote Zwiebelringe");
@@ -106,4 +113,32 @@ public class Zutat {
 		return saucenListe;
 	}
 
+	public void setBurger1 (int bestellung [][]) {
+		burger1 = bestellung;		
+	}
+	
+	public void setBurger2 (int bestellung [][]) {
+		burger2 = bestellung;		
+	}
+	
+	public void setBurger3 (int bestellung [][]) {
+		burger3 = bestellung;		
+	}
+	
+	public void setBurger4 (int bestellung [][]) {
+		burger4 = bestellung;		
+	}
+	
+	public void setBurger5 (int bestellung [][]) {
+		burger5 = bestellung;		
+	}
+	
+	public void setBurger6 (int bestellung [][]) {
+		burger6 = bestellung;		
+	}
+	
+	public void setBurger7 (int bestellung [][]) {
+		burger7 = bestellung;		
+	}
+	
 }

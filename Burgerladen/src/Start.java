@@ -15,9 +15,10 @@ public class Start {
 		zutat.vorgegebeneBratlinge();
 		zutat.vorgegebenesGemuese();
 		zutat.vorgegebeneSalate();
-		zutat.vorgegebeneSaucen();
-		Bestellung eins = new Bestellung();
-		eins.bestellBeginn();
+		zutat.vorgegebeneSaucen();		
+		Karte willkommen = new Karte();
+		willkommen.ausgabe();
+
 	}
 
 }

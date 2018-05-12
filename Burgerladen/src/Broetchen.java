@@ -29,4 +29,8 @@ public class Broetchen extends ZutatenErsteller{
 		}while (korrekt);
 	}
 	
+	public int getBreiteBroetchen() {
+		return breite;	
+	}
+	
 }

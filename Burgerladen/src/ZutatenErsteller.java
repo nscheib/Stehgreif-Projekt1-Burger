@@ -7,7 +7,8 @@ public class ZutatenErsteller {
 	protected long zubereitungsDauer = 0;
 	protected String name;
 	protected int breite = 0;
-	protected String [] geschmack = new String [8];
+	protected int anzahlGeschmaecker = 0;
+	protected String [] geschmack = new String [anzahlGeschmaecker];
 	
 	public void neueZutatPreis(){
 		boolean korrekt = false;
@@ -58,29 +59,38 @@ public class ZutatenErsteller {
 		do {
 			System.out.println("Welche Geschmackssinne Stimuliert ihre Zutat?");
 			System.out.println("<bitter>, <fett>, <sauer>, <salzig>, <scharf>, <suess>, <umami>, <normal>");
-			String eingabe = StaticScanner.nextString();			
-			switch(eingabe) {
+			String eingabe = StaticScanner.nextString();
+			int anzahlGeschmaecker = 0;
+			switch (eingabe) {
 			case "bitter":	
-				geschmack [0] = "Bitter";
+				geschmack [anzahlGeschmaecker] = "Bitter";
+				anzahlGeschmaecker++;
 			case "fett":
-				geschmack [1] = "Fett";
+				geschmack [anzahlGeschmaecker] = "Fett";
+				anzahlGeschmaecker++;
 			case "sauer":
-				geschmack [2] = "Sauer";
+				geschmack [anzahlGeschmaecker] = "Sauer";
+				anzahlGeschmaecker++;
 			case "salzig":
-				geschmack [3] = "Salzig";
+				geschmack [anzahlGeschmaecker] = "Salzig";
+				anzahlGeschmaecker++;
 			case "scharf":
-				geschmack [4] = "Scharf";
+				geschmack [anzahlGeschmaecker] = "Scharf";
+				anzahlGeschmaecker++;
 			case "suess":
-				geschmack [5] = "suess";
+				geschmack [anzahlGeschmaecker] = "suess";
+				anzahlGeschmaecker++;
 			case "umami":
-				geschmack [6] = "umami";
+				geschmack [anzahlGeschmaecker] = "umami";
+				anzahlGeschmaecker++;
 			case "normal":
-				geschmack [7] = "normal";
+				geschmack [anzahlGeschmaecker] = "normal";
+				anzahlGeschmaecker++;
 			}
 			System.out.print("Der Geschmack ihrer Zutat ist: ");
-			for (int i = 0; i < geschmack.length; i++) {				
-				if (geschmack [i] != null) {
-					System.out.print(geschmack[i]);
+			for (int j = 0; j < geschmack.length; j++) {				
+				if (geschmack [j] != null) {
+					System.out.print(geschmack[j]);
 				}				
 			}			
 			korrekt = bestaetigung();		
@@ -100,6 +110,14 @@ public class ZutatenErsteller {
 	
 	}
 	
+	public String[] getGeschmack() {
+		return geschmack;
+	}
+	
+	public int getVegetarisch() {
+		return vegetarisch;		
+	}
+ 
 	protected boolean bestaetigung() {
 		boolean antwort;
 		System.out.println("Sind sie damit einverstanden <ja> oder <nein> ?");

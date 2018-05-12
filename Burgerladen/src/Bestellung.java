@@ -1,64 +1,57 @@
 import de.hsrm.mi.prog.util.StaticScanner;
 
 public class Bestellung {
-	private int zusammenstellung[] = new int [8];
+	private int zusammenstellung[][] = new int [5][2];
 	private Zutat zutat = new Zutat();
 	private Broetchen broetchenListe [] = zutat.getBroetchenListe();
 	private Bratlinge bratlingListe [] = zutat.getBratlingListe();
 	private Gemuese gemueseListe [] = zutat.getGemueseListe();
 	private Salate salatListe [] = zutat.getSalatListe();
 	private Saucen saucenListe [] = zutat.getSaucenListe();
-	private int komponente = 0;
+	private int burgerNummer = 0;
+	
 
-	public void bestellBeginn () {
-		int extra = 0;
-		ZutatenErsteller [] zutatenListe;
+	public int [][] bestellBeginn () {
+		int komponente = 0;
+		ZutatenErsteller zutatenListe [];
+
 		do {
 			if (komponente == 0) {
 				zutatenListe = broetchenListe;
-				extra = burger(extra, zutatenListe);
+				komponente = burger(komponente, zutatenListe);
 			}else if(komponente == 1) {
 				zutatenListe = bratlingListe;
-				extra = burger(extra, zutatenListe);			
+				komponente = burger(komponente, zutatenListe);			
 			}else if(komponente == 2) {
 				zutatenListe = gemueseListe;
-				extra = burger(extra, zutatenListe);				
+				komponente = burger(komponente, zutatenListe);				
 			}else if(komponente == 3) {
 				zutatenListe = salatListe;
-				extra = burger(extra, zutatenListe);			
+				komponente = burger(komponente, zutatenListe);			
 			}else if(komponente == 4) {
 				zutatenListe = saucenListe;
-				extra = burger(extra, zutatenListe);						
+				komponente = burger(komponente, zutatenListe);						
 			}else {
 				System.out.println("ERROR Bestellung start");
 			}
-		}while ((komponente + extra) <= 8 || komponente != 5);
-		System.out.println("Ende?");
+		}while (komponente != 5); 		
+		burgerSpeichern();
+		return zusammenstellung;
+		//System.out.println("Ende?"); 														//Zubereiten
 	}
 	
-	public int extraLage(int extra) {
-		System.out.println("Wieviel wollen sie haben? ");
-		int eingabe = 0;
-		boolean korrekt = true;
-		do {
-			eingabe = StaticScanner.nextInt();
-			if(((extra + komponente) + eingabe) <= 8) {
-				
-				System.out.println("Sie wollen " + eingabe + " Lagen haben?");
-				korrekt = bestaetigung();	
-			}else if (((extra + komponente) + eingabe) > 8){
-				System.out.println("Das ist zuviel!!!");
-				
-			}else {
-				System.out.println("ERROR Extra Lage");
-				korrekt = false;
-			}
-		}while(korrekt);
-		extra += eingabe;
-		return extra;	
+	public void extraLage(int komponente) {
+		System.out.println("Wollen sie eine Extra Lage haben?");		
+		boolean eingabe;
+		eingabe = bestaetigung();	
+		if (eingabe == true) {
+			zusammenstellung[komponente][1] = 1;
+		}else{
+			zusammenstellung[komponente][1] = 2;
+		}	
 	}
 		
-	public int burger(int extra, ZutatenErsteller zutatenListe[]) {
+	public int burger(int komponente, ZutatenErsteller zutatenListe[]) {
 		boolean korrekt = true;		
 		do {
 			System.out.println("Bitte waehlen sie eine Zutat, mittels der dahinterstehenden Zahl:");		
@@ -69,25 +62,61 @@ public class Bestellung {
 				System.out.println(zutatenListe[i].name +"\t <"+ (i+1)+">");		
 			}					
 			int eingabe = StaticScanner.nextInt();
-			if (eingabe == 0 && komponente != 0) {
+			if (eingabe == 0 && komponente != 0) {											//ueberspringen einer Zutat
 				System.out.println("Sie wollen diese Zutat ueberspringen?");
 				korrekt = bestaetigung();
-				extra --;
-			}else if (eingabe + 1 > zutatenListe.length || eingabe <= 0){
+				zusammenstellung[komponente][1] = 0;
+			}else if (eingabe + 1 > zutatenListe.length || eingabe <= 0){					//ausherhalb der Liste gewaehlt
 				System.out.println("Bitte nehmen sie eine Zutat aus der Liste\n");
-			}else{
+			}else if (eingabe + 1 < zutatenListe.length || eingabe > 0){					//bestaetigen einer erlaubten auswahl
 				System.out.println("Wollen sie das " + zutatenListe[eingabe - 1].name + " haben?" );
 				korrekt = bestaetigung();
-				zusammenstellung[komponente] = eingabe;
-				if (komponente > 0) {
-					extra = extraLage(extra);
+				zusammenstellung[komponente][0] = eingabe;
+				if (komponente != 0) {
+					extraLage(komponente);													//extra Wurst gefaellig?
 				}
+			}else {
+				System.out.println("ERROR Bestellung: burger Zutaten abfrage");
 			}
 		}while(korrekt);	
 		komponente++;
-		return extra;
+		return komponente;
 	}
 
+	public void burgerSpeichern() {
+		Zutat burger = new Zutat();
+		switch (burgerNummer) {
+		case 0: 
+			burger.setBurger1(zusammenstellung);
+			burgerNummer++;
+			break;
+		case 1: 
+			burger.setBurger2(zusammenstellung);
+			burgerNummer++;
+			break;
+		case 2: 
+			burger.setBurger3(zusammenstellung);
+			burgerNummer++;
+			break;
+		case 3: 
+			burger.setBurger4(zusammenstellung);
+			burgerNummer++;
+			break;
+		case 4: 
+			burger.setBurger5(zusammenstellung);
+			burgerNummer++;
+			break;
+		case 5: 
+			burger.setBurger6(zusammenstellung);
+			burgerNummer++;
+			break;
+		case 6: 
+			burger.setBurger7(zusammenstellung);
+			burgerNummer++;
+			break;
+		}
+	}
+	
 	private boolean bestaetigung() {
 		boolean antwort;
 		String eingabeBestaetigung = StaticScanner.nextString();
@@ -103,6 +132,5 @@ public class Bestellung {
 		}	
 		return antwort;
 	}
-	
 	
 }
