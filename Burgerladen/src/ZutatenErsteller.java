@@ -1,5 +1,10 @@
 import de.hsrm.mi.prog.util.StaticScanner;
 
+/**
+ *  ZutatenErsteller, mithilfe dieser Methode ist es möglich neue Zutaten zu erstellen, mit Preis, Geschmack uvm.
+ *  @author Felix, Luca, Nick
+ *  @version 0.9
+ */
 public class ZutatenErsteller {
 
 	protected double preis = 0; 
@@ -8,7 +13,10 @@ public class ZutatenErsteller {
 	protected String name;
 	protected int breite = 0;
 	protected String [] geschmack = new String [8];
-	
+
+	/**
+	 * Methode zum abragen und speichern des Preises
+	 */
 	public void neueZutatPreis(){
 		boolean korrekt = false;
 		do {
@@ -19,7 +27,10 @@ public class ZutatenErsteller {
 			preis = eingabe;
 		}while(korrekt);
 	}
-	
+
+	/**
+	 * Methode zum speichern, ob die Zutat eine vegetarische, vegane oder fleischhaltige Zutat ist
+	 */
 	public void neueZutatVegetarisch() {
 		System.out.println("Ist die neue Zutat <vegan>, <vegetarisch> oder enthaelt sie <fleisch>?");
 		boolean korrekt = true;
@@ -40,7 +51,10 @@ public class ZutatenErsteller {
 			}
 		}while(korrekt);
 	}
-	
+
+	/**
+	 * Methode zum eingeben und speichern der Dauer, wie die lange die Zubereitungsdauer ist
+	 */
 	public void neueZutatZeit() {		
 		boolean korrekt = false;
 		do {
@@ -52,7 +66,10 @@ public class ZutatenErsteller {
 		}while(korrekt);
 		
 	}
-	
+
+	/**
+	 * Methode um die Geschmacksriochtung festlegen zu koennen und diese zu speichern
+	 */
 	public void neueZutatGeschmack() {		
 		boolean korrekt = false;
 		do {
@@ -86,7 +103,10 @@ public class ZutatenErsteller {
 			korrekt = bestaetigung();		
 		}while(korrekt);	
 	}
-	
+
+	/**
+	 * Methode zum festlegen und speichern des Zutatnamens
+	 */
 	public void neueZutatName() {
 		boolean korrekt = false;
 		do {
@@ -99,7 +119,11 @@ public class ZutatenErsteller {
 		
 	
 	}
-	
+
+	/**
+	 * Methode um die Eingaben zu bestaetigen
+	 * @return antwort gibt ein true oder false zurueck, je nach dem, ob die Eingabe bestaetigt wurde oder nicht
+	 */
 	protected boolean bestaetigung() {
 		boolean antwort;
 		System.out.println("Sind sie damit einverstanden <ja> oder <nein> ?");

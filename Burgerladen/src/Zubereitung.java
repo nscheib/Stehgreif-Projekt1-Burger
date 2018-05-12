@@ -1,13 +1,24 @@
 
+/**
+ *  Salate, dient zum verwalten der verschiedenen Salatsorten und die dazugehoerigen Parameter
+ *  @author Felix, Luca, Nick
+ *  @version 0.9
+ */
 public class Zubereitung {
 	
 	int [] bestellung;
-	
+
+	/**
+	 *  Der Konstruktor fuer die Zubereitung setzt verschiedene Parameter fest
+	 * @param bestellung setzt fest was alles in der Bestelltung enthalten ist
+	 */
 	public Zubereitung (int [] bestellung) {
 		this.bestellung = bestellung;
-		
 	}
-	
+
+	/**
+	 * Methode berechnet mithilfe der Zubereitungsdauer der Zutaten eine gesamte Zubereitungsdauer in Millisecounds
+	 */
 	private void zubereiten () {
 		//zeit preis breite
 		Broetchen broetchenListe [] = Zutat.getBroetchenListe();
@@ -27,7 +38,10 @@ public class Zubereitung {
 		}
 		essensVerpackung();
 	}
-	
+
+	/**
+	 * Methode zum "verpacken" des Burgers und die damit verbundene Zeit                // ggf. Anzeige der gesamten Zutatenliste?//
+	 */
 	public void essensVerpackung() {
 		
 		

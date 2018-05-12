@@ -1,6 +1,14 @@
 
+/**
+ *  Karte, dient zum ausgeben der Anleitung der Speisekarte und Eingabebefehlen
+ *  @author Felix, Luca, Nick
+ *  @version 0.9
+ */
 public class Karte {
 
+	/**
+	 * Methode gibt die Verschiedenen Eingabebefehlen mit der passenden Erklaerung aus
+	 */
 	public void ausgabe(){
 		String text1 = "Willkommen beim Burgermeister.\r\nBitte geben Sie Ihre Bestellung fuer Ihre Lieblingsburger ein.";
 		String text2 = "Mit <menu> koennen Sie sich die vollstaendigen Zutaten anzeigen lassen.";
@@ -17,7 +25,11 @@ public class Karte {
 		String eingabe = Abfrage.eingabe();
 		verwaltung(eingabe);
 	}
-	
+
+	/**
+	 * Methode ruft unterschiedliche Funktionen auf, wie zb der aktuelle Status der Bestellung und gewaehlten Zutaten
+	 * @param eingabe gibt den eingegeben Befehl an die Methode weiter
+	 */
 	public void verwaltung(String eingabe){
 		
 		if (eingabe.equals("menu")){
