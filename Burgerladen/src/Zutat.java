@@ -1,5 +1,12 @@
+// IMPORT --------------------------------------------//
 import de.hsrm.mi.prog.util.StaticScanner;
+// IMPORT --------------------------------------------//
 
+/**
+ *  Zutat, dient zum verwalten der verschiedenen Zutaten und die dazugehoerigen Parameter
+ *  @author Felix, Luca, Nick
+ *  @version 0.9
+ */
 public class Zutat {
 	
 	private static int anzahlBroetchenSorten = 5;
@@ -20,7 +27,11 @@ public class Zutat {
 	private static Salate [] salatListe = new Salate [anzahlSalatSorten];
 	private static Saucen [] saucenListe = new Saucen [anzahlSaucenSorten];
 
+	/**
+	 * Methode enthaelt die verschiedenen Broetchensorten mit den speziefischen Eigenschaften, wie Geschmack. Zubereitungsdauer, Preis uvm.
+	 */
 	public void vorgegebeneBroetchen() {
+
 		//bitter, fett, salzig, sauer, scharf, suess, umami, normal
 		String [] geschmackHamburger = {"Fett", "Suess", "Normal"};
 		String [] geschmackSesam = {"Fett", "Suess"};
@@ -36,8 +47,12 @@ public class Zutat {
 		broetchenListe[2] = veganesBroetchen;
 		broetchenListe[3] = ciabatta;
 	}
-	
+
+	/**
+	 * Methode enthaelt die verschiedenen Salatsorten mit den speziefischen Eigenschaften, wie Geschmack, Zubereitungsdauer, Preis uvm.
+	 */
 	public void vorgegebeneSalate() {
+
 		String [] geschmackEisberg = {"Normal"};
 		String [] geschmackRucola = {"Sauer"};
 		Salate eisbergSalat = new Salate (5, 0.18, 2, 5l, geschmackEisberg, "Eisbergsalat");
@@ -45,8 +60,12 @@ public class Zutat {
 		salatListe[0] = eisbergSalat;
 		salatListe[1] = rucolaSalat;	
 	}
-	
+
+	/**
+	 * Methode enthaelt die verschiedenen Saucensorten mit den speziefischen Eigenschaften, wie Geschmack, Zubereitungsdauer, Preis uvm.
+	 */
 	public void vorgegebeneSaucen() {
+
 		String [] geschmackKetchup = {"Suess", "Normal"}; 
 		String [] geschmackSandwichSauce = {"Fett", "Suess"};
 		String [] geschmackChiliSauce = {"Scharf"};
@@ -60,8 +79,12 @@ public class Zutat {
 		saucenListe[2] = chiliSauce;
 		saucenListe[3] = honigSenfSauce;
 	}
-	
+
+	/**
+	 * Methode enthaelt die verschiedenen Bratlingssorten mit den speziefischen Eigenschaften, wie Geschmack, Zubereitungsdauer, Preis uvm.
+	 */
 	public void vorgegebeneBratlinge() {
+
 		String [] geschmackPferdefleisch = {"Fett", "Umami", "Normal"}; // Einkaufspreis 0.20
 		String [] geschmackHaenchenfleisch = {"Umami"};
 		String [] geschmackFalafel = {"Scharf", "Suess"};
@@ -75,9 +98,13 @@ public class Zutat {
 		bratlingListe[2] = falafel;
 		bratlingListe[3] = gemuese;	
 	}
-	
+
+	/**
+	 * Methode enthaelt die verschiedenen Gemuesesorten mit den speziefischen Eigenschaften, wie Geschmack, Zubereitungsdauer, Preis uvm.
+	 */
 	public void vorgegebenesGemuese() {
-								//bitter, fett, sauer, scharf, suess, umami, normal
+
+		//bitter, fett, sauer, scharf, suess, umami, normal
 		String [] geschmackTomate = {"Sauer","Suess", "Normal"}; 
 		String [] geschmackSalzGurke = {"Salzig"};  
 		String [] geschmackZwiebelRinge = {"Sauer"};
@@ -91,51 +118,99 @@ public class Zutat {
 		gemueseListe[2] = zwiebelRinge;
 		gemueseListe[3] = jalapeno;	
 	}
-	
+
+	/**
+	 * Methode zum zurueckgeben der Broetchensorten
+	 * @return broetchenListe gibt die Namen der Broetchensorten zurueck
+	 */
 	public static Broetchen[] getBroetchenListe() {
 		return broetchenListe;
 	}
-	
+
+	/**
+	 * Methode zum zurueckgeben der Bratlingssorten
+	 * @return broetchenListe gibt die Namen der Bratlingssorten zurueck
+	 */
 	public static Bratlinge[] getBratlingListe() {
 		return bratlingListe;
 	}
-	
+
+	/**
+	 * Methode zum zurueckgeben der Gemuesesorten
+	 * @return broetchenListe gibt die Namen der Gemuesesorten zurueck
+	 */
 	public static Gemuese[] getGemueseListe() {
 		return gemueseListe;
 	}
-	
+
+	/**
+	 * Methode zum zurueckgeben der Salatsorten
+	 * @return broetchenListe gibt die Namen der Salatsorten zurueck
+	 */
 	public static Salate[] getSalatListe() {
 		return salatListe;
 	}
-	
+
+	/**
+	 * Methode zum zurueckgeben der Saucensorten
+	 * @return broetchenListe gibt die Namen der Saucensorten zurueck
+	 */
 	public static Saucen[] getSaucenListe() {
 		return saucenListe;
 	}
 
+	/**
+	 * Methode setzt den ersten Burger fest
+	 * @param bestellung setzt die Parameter fuer die einzelen Bestellzutaten fest
+	 */
 	public void setBurger1 (int bestellung [][]) {
 		burger1 = bestellung;		
 	}
-	
+
+	/**
+	 * Methode setzt den zeiten Burger fest
+	 * @param bestellung setzt die Parameter fuer die einzelen Bestellzutaten fest
+	 */
 	public void setBurger2 (int bestellung [][]) {
 		burger2 = bestellung;		
 	}
-	
+
+	/**
+	 * Methode setzt den dritten Burger fest
+	 * @param bestellung setzt die Parameter fuer die einzelen Bestellzutaten fest
+	 */
 	public void setBurger3 (int bestellung [][]) {
 		burger3 = bestellung;		
 	}
-	
+
+	/**
+	 * Methode setzt den vierten Burger fest
+	 * @param bestellung setzt die Parameter fuer die einzelen Bestellzutaten fest
+	 */
 	public void setBurger4 (int bestellung [][]) {
 		burger4 = bestellung;		
 	}
-	
+
+	/**
+	 * Methode setzt den fuenften Burger fest
+	 * @param bestellung setzt die Parameter fuer die einzelen Bestellzutaten fest
+	 */
 	public void setBurger5 (int bestellung [][]) {
 		burger5 = bestellung;		
 	}
-	
+
+	/**
+	 * Methode setzt den sechsten Burger fest
+	 * @param bestellung setzt die Parameter fuer die einzelen Bestellzutaten fest
+	 */
 	public void setBurger6 (int bestellung [][]) {
 		burger6 = bestellung;		
 	}
-	
+
+	/**
+	 * Methode setzt den siebten Burger fest
+	 * @param bestellung setzt die Parameter fuer die einzelen Bestellzutaten fest
+	 */
 	public void setBurger7 (int bestellung [][]) {
 		burger7 = bestellung;		
 	}

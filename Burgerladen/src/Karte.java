@@ -1,9 +1,19 @@
+// IMPORT --------------------------------------------//
 import de.hsrm.mi.prog.util.StaticScanner;
+// IMPORT --------------------------------------------//
 
+/**
+ *  Karte, dient zum ausgeben der Anleitung der Speisekarte und Eingabebefehlen
+ *  @author Felix, Luca, Nick
+ *  @version 0.9
+ */
 public class Karte {
 	
 	private int anzahlDerBurger = 0;
 
+	/**
+	 * Methode gibt die Verschiedenen Eingabebefehlen mit der passenden Erklaerung aus
+	 */
 	public void ausgabe(){
 		
 		String text1 = "Willkommen beim Burgermeister.\r\nBitte geben Sie Ihre Bestellung fuer Ihre Lieblingsburger ein.";
@@ -21,7 +31,11 @@ public class Karte {
 		String eingabe = Abfrage.eingabe();
 		verwaltung(eingabe);
 	}
-	
+
+	/**
+	 * Methode ruft unterschiedliche Funktionen auf, wie zb der aktuelle Status der Bestellung und gewaehlten Zutaten
+	 * @param eingabe gibt den eingegeben Befehl an die Methode weiter
+	 */
 	public void verwaltung(String eingabe){
 		
 		if (eingabe.equals("menu")){
@@ -35,8 +49,7 @@ public class Karte {
 			menu(salatListe);
 			Saucen saucenListe [] = Zutat.getSaucenListe(); 	
 			menu(saucenListe);
-			
-				
+
 		}else if (eingabe.equals("bestellung")){
 			Bestellung zusammensteller = new Bestellung();
 			Zubereitung inDieKueche1 = new Zubereitung (zusammensteller.bestellBeginn());
@@ -80,10 +93,14 @@ public class Karte {
 		}else if (eingabe.equals("meine Burger")){
 			// auflistung der bisherigen Bestellung
 		}
-		
 	}
-	
+
+	/**
+	 * Methode zur Abfrage, ob eine weitere Bestellung getaetigt werden soll oder nicht
+	 * @return antwort, gibt die eingegeben Antwort zurueck
+	 */
 	public boolean mehrBurger() {
+
 		boolean antwort;
 		System.out.println("Wollen sie einen weiteren Burger Bestellen? <ja> oder <nein>");
 		String eingabeBestaetigung = StaticScanner.nextString();
@@ -100,7 +117,11 @@ public class Karte {
 		anzahlDerBurger++;
 		return antwort;
 	}
-	
+
+	/**
+	 * Methode gibt die Zutaten mit Name, Preisen uvm. aus
+	 * @param liste gibt die verschiedenen Zutaten an die Methode weiter
+	 */
 	private void menu (ZutatenErsteller liste[]) {
 		
 		for (int i = 0; i < liste.length - 1; i++) {

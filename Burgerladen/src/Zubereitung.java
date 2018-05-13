@@ -1,5 +1,12 @@
+// IMPORT --------------------------------------------//
 import de.hsrm.mi.prog.util.StaticScanner;
+// IMPORT --------------------------------------------//
 
+/**
+ *  Salate, dient zum verwalten der verschiedenen Salatsorten und die dazugehoerigen Parameter
+ *  @author Felix, Luca, Nick
+ *  @version 0.9
+ */
 public class Zubereitung {
 	
 	private boolean zubereitet = false;
@@ -28,12 +35,19 @@ public class Zubereitung {
 	double preis;
 	int breite;
 	int vegetarisch = 1;
-	
+
+	/**
+	 *  Der Konstruktor fuer die Zubereitung setzt verschiedene Parameter fest
+	 * @param bestellung setzt fest was alles in der Bestelltung enthalten ist
+	 */
 	public Zubereitung (int [][] bestellung) {
 		this.bestellung = bestellung;
 		
 	}
-	
+
+	/**
+	 * Methode berechnet mithilfe der Zubereitungsdauer der Zutaten eine gesamte Zubereitungsdauer in Millisecounds
+	 */
 	public void zubereiten () {
 		//zeit preis breite
 		long start = System.currentTimeMillis();
@@ -76,7 +90,10 @@ public class Zubereitung {
 		}
 		zubereitet = true;
 	}
-	
+
+	/**
+	 * Methode zum "verpacken" des Burgers und die damit verbundene Zeit
+	 */
 	public String essenVerpacken() {
 		
 		
@@ -133,7 +150,13 @@ public class Zubereitung {
 		
 		
 	}
-	
+
+	/**
+	 * Methode zum berechnen der Zubereitungsdauer je Burger
+	 * @param sorte setzt die benoetigte Zubereitungsdauer einer Zutat fest
+	 * @param liste setzt die Zutat fest
+	 * @return wert, gibt den berechneten Wert fuer die Dauer der Zubereitung zurueck
+	 */
 	private long abfrageZubereitungsdauer(int sorte, ZutatenErsteller [] liste) {	
 		long wert = 0;
 		if(bestellung[sorte][0] == 0 && bestellung [sorte][1] == EXTRALAGE) {		
@@ -145,7 +168,13 @@ public class Zubereitung {
 		}	
 		return wert;
 	}
-	
+
+	/**
+	 * Methode zum berechnen des Preises je Burger
+	 * @param sorte setzt den benoetigte Preis einer Zutat fest
+	 * @param liste setzt die Zutat fest
+	 * @return wert, gibt den berechneten Wert fuer die Gesamtkosten pro Burger zurueck
+	 */
 	private double abfragePreis(int sorte, ZutatenErsteller [] liste) {	
 		double wert = 0;
 		if(bestellung[sorte][0] == 0 && bestellung [sorte][1] == EXTRALAGE) {		
@@ -157,7 +186,13 @@ public class Zubereitung {
 		}	
 		return wert;
 	}
-	
+
+	/**
+	 * Methode zum berechnen der Dicke je Burger
+	 * @param sorte setzt die benoetigte Dicke einer Zutat fest
+	 * @param liste setzt die Zutat fest
+	 * @return wert, gibt den berechneten Wert fuer die Gesamtdicke pro Burger zurueck
+	 */
 	private int abfrageBreite(int sorte, ZutatenErsteller [] liste) {	
 		int wert = 0;
 		if(bestellung[sorte][0] == 0 && bestellung [sorte][1] == EXTRALAGE) {		
@@ -169,7 +204,12 @@ public class Zubereitung {
 		}	
 		return wert;
 	}
-	
+
+	/**
+	 * Methode zum ueberpruefen welche Geschmacksrichtungen pro Burger enthalten sind
+	 * @param sorte setzt die benoetigte Geschmacksrichtung einer Zutat fest
+	 * @param liste setzt die Zutat fest
+	 */
 	private void abfrageGeschmack (int sorte, ZutatenErsteller liste[]) {
 		String geschmack [] =  liste[bestellung[sorte][0]].getGeschmack();
 		for (int i = 0; i < geschmack.length; i++) {
@@ -201,6 +241,13 @@ public class Zubereitung {
 		}
 	}
 
+	/**
+	 * Methode um den Burger als typ zu deklarieren (vegan, vegetarisch oder fleisch)
+	 * @param vegetarisch setzt den gewaehlten Burgertyp fest
+	 * @param sorte setzt den benoetigten Typ fest
+	 * @param liste setzt den Typ der Zutat fest
+	 * @return vegetarisch, gibt zurueck welcher Typ Burger gewaehlt wurde
+	 */
 	private int abfrageVegetarisch (int vegetarisch, int sorte, ZutatenErsteller [] liste) {
 		if (vegetarisch < liste[bestellung[sorte][0]].getVegetarisch()) {
 		vegetarisch = liste[bestellung[sorte][0]].getVegetarisch();

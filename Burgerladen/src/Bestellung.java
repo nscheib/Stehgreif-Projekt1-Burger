@@ -1,6 +1,14 @@
+// IMPORT --------------------------------------------//
 import de.hsrm.mi.prog.util.StaticScanner;
+// IMPORT --------------------------------------------//
 
+/**
+ *  Bestellung, dient zum verwalten der bestellten Zutaten, abspeichern in eine Bestellliste und deren Verarbeitung
+ *  @author Felix, Luca, Nick
+ *  @version 0.9
+ */
 public class Bestellung {
+
 	private int zusammenstellung[][] = new int [5][2];
 	private Zutat zutat = new Zutat();
 	private Broetchen broetchenListe [] = zutat.getBroetchenListe();
@@ -9,12 +17,14 @@ public class Bestellung {
 	private Salate salatListe [] = zutat.getSalatListe();
 	private Saucen saucenListe [] = zutat.getSaucenListe();
 	private int burgerNummer = 0;
-	
 
+	/**
+	 * Methode zum abfragen der Zutaten die auf dem Burger sollen und dem abspeichern der gewaehlten Zutaten in die Bestellliste
+	 */
 	public int [][] bestellBeginn () {
+
 		int komponente = 0;
 		ZutatenErsteller zutatenListe [];
-
 		do {
 			if (komponente == 0) {
 				zutatenListe = broetchenListe;
@@ -39,19 +49,29 @@ public class Bestellung {
 		return zusammenstellung;
 		//System.out.println("Ende?"); 														//Zubereiten
 	}
-	
+
+	/**
+	 * Methode dient der Abfrage fuer die Anzahl an Zutanten die man auf seinem Burger moechte
+	 */
 	public void extraLage(int komponente) {
+
 		System.out.println("Wollen sie eine Extra Lage haben?");		
 		boolean eingabe;
-		eingabe = bestaetigung();	
+		eingabe = bestaetigung();
 		if (eingabe == true) {
 			zusammenstellung[komponente][1] = 1;
 		}else{
 			zusammenstellung[komponente][1] = 2;
 		}	
 	}
-		
+
+	/**
+	 * Methode zum abfragen, ob eine Zutat gewaehlt, uebersprungen und ob diese Zutat hinzugefuegt werden soll
+	 * @param zutatenListe gibt die Anzahl der gesamten Zutaten an die Methode weiter
+	 * @return extra gibt den Wert der Anzahl an ausgewaehlten Zutaten zurueck
+	 */
 	public int burger(int komponente, ZutatenErsteller zutatenListe[]) {
+
 		boolean korrekt = true;	
 		int eingabe = 0;
 		do {
@@ -87,41 +107,50 @@ public class Bestellung {
 		return komponente;
 	}
 
+	/**
+	 * Methode zum speichern der einzelnen Burger und speichern der Anzahl an Burgern
+	 */
 	public void burgerSpeichern() {
+
 		Zutat burger = new Zutat();
 		switch (burgerNummer) {
-		case 0: 
+		case 0:
 			burger.setBurger1(zusammenstellung);
 			burgerNummer++;
 			break;
-		case 1: 
+		case 1:
 			burger.setBurger2(zusammenstellung);
 			burgerNummer++;
 			break;
-		case 2: 
+		case 2:
 			burger.setBurger3(zusammenstellung);
 			burgerNummer++;
 			break;
-		case 3: 
+		case 3:
 			burger.setBurger4(zusammenstellung);
 			burgerNummer++;
 			break;
-		case 4: 
+		case 4:
 			burger.setBurger5(zusammenstellung);
 			burgerNummer++;
 			break;
-		case 5: 
+		case 5:
 			burger.setBurger6(zusammenstellung);
 			burgerNummer++;
 			break;
-		case 6: 
+		case 6:
 			burger.setBurger7(zusammenstellung);
 			burgerNummer++;
 			break;
 		}
 	}
-	
+
+	/**
+	 * Methode ueberprueft die Eingabe und faengt eine moegliche Exeption ab
+	 * @return eingabe gibt die Eingabe zurueck
+	 */
 	private int abfrage () {
+
 		int eingabe = 0;
 		boolean korrekt = false;
 		do {
@@ -136,8 +165,13 @@ public class Bestellung {
 		}while(korrekt);
 		return eingabe;
 	}
-	
+
+	/**
+	 * Methode zur Ueberpruefung der Eingabe, ob die Zutat gewaehlt werden moechte
+	 * @return antwort gibt die eingegebene Antwort zurueck
+	 */
  	private boolean bestaetigung() {
+
 		boolean antwort;
 		String eingabeBestaetigung = StaticScanner.nextString();
 		if (eingabeBestaetigung.equals("nein")){

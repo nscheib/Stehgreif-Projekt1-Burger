@@ -1,5 +1,12 @@
+// IMPORT --------------------------------------------//
 import de.hsrm.mi.prog.util.StaticScanner;
+// IMPORT --------------------------------------------//
 
+/**
+ *  ZutatenErsteller, mithilfe dieser Methode ist es möglich neue Zutaten zu erstellen, mit Preis, Geschmack uvm.
+ *  @author Felix, Luca, Nick
+ *  @version 0.9
+ */
 public class ZutatenErsteller {
 
 	protected double preis = 0; 
@@ -9,8 +16,12 @@ public class ZutatenErsteller {
 	protected int breite = 0;
 	protected int anzahlGeschmaecker = 0;
 	protected String [] geschmack = new String [anzahlGeschmaecker];
-	
+
+	/**
+	 * Methode zum abragen und speichern des Preises
+	 */
 	public void neueZutatPreis(){
+
 		boolean korrekt = false;
 		do {
 			System.out.println("Wieviel kostet die neue Zutat dem Kunden?");
@@ -20,8 +31,12 @@ public class ZutatenErsteller {
 			preis = eingabe;
 		}while(korrekt);
 	}
-	
+
+	/**
+	 * Methode zum speichern, ob die Zutat eine vegetarische, vegane oder fleischhaltige Zutat ist
+	 */
 	public void neueZutatVegetarisch() {
+
 		System.out.println("Ist die neue Zutat <vegan>, <vegetarisch> oder enthaelt sie <fleisch>?");
 		boolean korrekt = true;
 		do {
@@ -41,8 +56,12 @@ public class ZutatenErsteller {
 			}
 		}while(korrekt);
 	}
-	
-	public void neueZutatZeit() {		
+
+	/**
+	 * Methode zum eingeben und speichern der Dauer, wie die lange die Zubereitungsdauer ist
+	 */
+	public void neueZutatZeit() {
+
 		boolean korrekt = false;
 		do {
 			System.out.println("Wie lange brauchen Sie fuer die Zutat (in sec)?");
@@ -53,8 +72,12 @@ public class ZutatenErsteller {
 		}while(korrekt);
 		
 	}
-	
-	public void neueZutatGeschmack() {		
+
+	/**
+	 * Methode um die Geschmacksriochtung festlegen zu koennen und diese zu speichern
+	 */
+	public void neueZutatGeschmack() {
+
 		boolean korrekt = false;
 		do {
 			System.out.println("Welche Geschmackssinne Stimuliert ihre Zutat?");
@@ -96,8 +119,12 @@ public class ZutatenErsteller {
 			korrekt = bestaetigung();		
 		}while(korrekt);	
 	}
-	
+
+	/**
+	 * Methode zum festlegen und speichern des Zutatnamens
+	 */
 	public void neueZutatName() {
+
 		boolean korrekt = false;
 		do {
 			System.out.println("Letzte Frage: Wie heisst ihre Zutat?");
@@ -107,16 +134,29 @@ public class ZutatenErsteller {
 			name = eingabe;
 		}while(korrekt);
 	}
-	
+
+	/**
+	 * Methode zum abrufen des Geschmacks
+	 * @return geschmack gibt den Geschmack zurueck
+	 */
 	public String[] getGeschmack() {
 		return geschmack;
 	}
-	
+
+	/**
+	 * Methode zum abrufen des Burgertyps
+	 * @return gibt den Burgertyp zurueck
+	 */
 	public int getVegetarisch() {
 		return vegetarisch;		
 	}
- 
+
+	/**
+	 * Methode um die Eingaben zu bestaetigen
+	 * @return antwort gibt ein true oder false zurueck, je nach dem, ob die Eingabe bestaetigt wurde oder nicht
+	 */
 	protected boolean bestaetigung() {
+
 		boolean antwort;
 		System.out.println("Sind sie damit einverstanden <ja> oder <nein> ?");
 		String eingabeBestaetigung = StaticScanner.nextString();

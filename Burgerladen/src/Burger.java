@@ -1,4 +1,8 @@
-
+/**
+ *  Burger, dient zum verwalten eines Burgers und den verschiedenen Zutaten
+ *  @author Felix, Luca, Nick
+ *  @version 0.9
+ */
 public class Burger {
 	
 	private Broetchen broetchen;
@@ -23,10 +27,11 @@ public class Burger {
 	public void setSaucen (Saucen sauce){
 		this.sauce = sauce;
 	}
+
 	/*	 max. 8 Zutaten 
 	max. 10 bestellbar
 	Vegan/ vegetarisch 
 	Preis
 	vorgefertigte burger
-*/
+	*/
 }
