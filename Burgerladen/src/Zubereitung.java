@@ -25,6 +25,9 @@ public class Zubereitung {
 	private int suess = 0;
 	private int umami = 0;
 	private int normal = 0;
+	double preis;
+	int breite;
+	int vegetarisch = 1;
 	
 	public Zubereitung (int [][] bestellung) {
 		this.bestellung = bestellung;
@@ -75,10 +78,10 @@ public class Zubereitung {
 	}
 	
 	public String essenVerpacken() {
-		double preis;
-		int breite;
+		
+		
 		String endGeschmack = "Ein wahrlich Individueller Burger";
-		int vegetarisch = 1;
+		
 		if (zubereitet == true) {
 			preis = abfragePreis(BROETCHENSORTE, broetchenListe);
 			preis += abfragePreis(BRATLINGSORTE, bratlingListe);
@@ -98,19 +101,19 @@ public class Zubereitung {
 			abfrageGeschmack (GEMUESESORTE, gemueseListe);			
 			abfrageGeschmack (SALATSORTE, salatListe);
 			abfrageGeschmack (SAUCENSORTE, saucenListe);
-			if (bitter > 4) {	
+			if (bitter >= 4) {	
 				endGeschmack = "Ganz schoen bitter.";
-			}else if (fett > 5){
+			}else if (fett >= 5){
 				endGeschmack = "Der Burger ist mindestens so fettig wie du.";
-			}else if (sauer > 3){ 
+			}else if (sauer >= 3){ 
 				endGeschmack = "Sauer ist er ja schon.";
-			}else if (salzig > 3){
+			}else if (salzig >= 3){
 				endGeschmack = "Danach solltest du etwas trinken.";
-			}else if (scharf > 4){ 
+			}else if (scharf >= 4){ 
 				endGeschmack = "Dir wird schwindelig und du kippst um rip.";
-			}else if (suess > 3){
+			}else if (suess >= 3){
 				endGeschmack= "Das ist mehr eine Suessigkeit, als ein Burger.";
-			}else if (umami > 5){ 
+			}else if (umami >= 5){ 
 				endGeschmack = "Das ist ein Veganer Albtraum.";
 			}else if (normal == 5){ 
 				endGeschmack = "Dies ist ein klassischer Burger.";
@@ -168,24 +171,31 @@ public class Zubereitung {
 	}
 	
 	private void abfrageGeschmack (int sorte, ZutatenErsteller liste[]) {
-		String geschmack [] = liste[bestellung[sorte][0]].getGeschmack();
+		String geschmack [] =  liste[bestellung[sorte][0]].getGeschmack();
 		for (int i = 0; i < geschmack.length; i++) {
 			switch (geschmack[i]) {
-			case "bitter":	
+			case "Bitter":	
 				bitter++;
-			case "fett":
+				continue;
+			case "Fett":
 				fett++;
-			case "sauer":
+				continue;
+			case "Sauer":
 				sauer++;
-			case "salzig":
+				continue;
+			case "Salzig":
 				salzig++;
-			case "scharf":
+				continue;
+			case "Scharf":
 				scharf++;
-			case "suess":
+				continue;
+			case "Suess":
 				suess++;
-			case "umami":
+				continue;
+			case "Umami":
 				umami++;
-			case "normal":
+				continue;
+			case "Normal":
 				normal++;
 			}
 		}

@@ -106,8 +106,6 @@ public class ZutatenErsteller {
 			korrekt = bestaetigung();
 			name = eingabe;
 		}while(korrekt);
-		
-	
 	}
 	
 	public String[] getGeschmack() {

@@ -1,8 +1,11 @@
 import de.hsrm.mi.prog.util.StaticScanner;
 
 public class Karte {
+	
+	private int anzahlDerBurger = 0;
 
 	public void ausgabe(){
+		
 		String text1 = "Willkommen beim Burgermeister.\r\nBitte geben Sie Ihre Bestellung fuer Ihre Lieblingsburger ein.";
 		String text2 = "Mit <menu> koennen Sie sich die vollstaendigen Zutaten anzeigen lassen.";
 		String text3 = "Mit <zutat> und der jeweiligen Nummer koennen Sie eine Zutat auswaehlen.";
@@ -22,21 +25,65 @@ public class Karte {
 	public void verwaltung(String eingabe){
 		
 		if (eingabe.equals("menu")){
-			//auflistung der Zutaten
-		}else if (eingabe.equals("bestellung")){
+			Broetchen broetchenListe []= Zutat.getBroetchenListe();
+			menu(broetchenListe);
+			Bratlinge bratlingListe [] = Zutat.getBratlingListe();
+			menu(bratlingListe);
+			Gemuese gemueseListe [] = Zutat.getGemueseListe();
+			menu(gemueseListe);
+			Salate salatListe [] = Zutat.getSalatListe();
+			menu(salatListe);
+			Saucen saucenListe [] = Zutat.getSaucenListe(); 	
+			menu(saucenListe);
 			
-			Bestellung eins = new Bestellung();
-			Zubereitung inDieKueche1 = new Zubereitung (eins.bestellBeginn());
+				
+		}else if (eingabe.equals("bestellung")){
+			Bestellung zusammensteller = new Bestellung();
+			Zubereitung inDieKueche1 = new Zubereitung (zusammensteller.bestellBeginn());
 			inDieKueche1.zubereiten();
 			System.out.println(inDieKueche1.essenVerpacken());
-			
+			if (mehrBurger()== false) {
+				Zubereitung inDieKueche2 = new Zubereitung (zusammensteller.bestellBeginn());
+				inDieKueche2.zubereiten();
+				System.out.println(inDieKueche2.essenVerpacken());
+				if (mehrBurger()== false) {	
+					Zubereitung inDieKueche3 = new Zubereitung (zusammensteller.bestellBeginn());
+					inDieKueche3.zubereiten();
+					System.out.println(inDieKueche3.essenVerpacken());
+					if (mehrBurger()== false) {
+						Zubereitung inDieKueche4 = new Zubereitung (zusammensteller.bestellBeginn());
+						inDieKueche4.zubereiten();
+						System.out.println(inDieKueche4.essenVerpacken());
+						if (mehrBurger()== false) {
+							Zubereitung inDieKueche5 = new Zubereitung (zusammensteller.bestellBeginn());
+							inDieKueche5.zubereiten();
+							System.out.println(inDieKueche5.essenVerpacken());
+							if (mehrBurger()== false) {
+								Zubereitung inDieKueche6 = new Zubereitung (zusammensteller.bestellBeginn());
+								inDieKueche6.zubereiten();
+								System.out.println(inDieKueche6.essenVerpacken());
+								if (mehrBurger()== false) {				
+									Zubereitung inDieKueche7 = new Zubereitung (zusammensteller.bestellBeginn());
+									inDieKueche7.zubereiten();
+									System.out.println(inDieKueche7.essenVerpacken());
+									if (mehrBurger()== false) {
+										Zubereitung inDieKueche8 = new Zubereitung (zusammensteller.bestellBeginn());
+										inDieKueche8.zubereiten();
+										System.out.println(inDieKueche8.essenVerpacken());
+									}
+								}	
+							}
+						}
+					}
+				}
+			}
 		}else if (eingabe.equals("meine Burger")){
 			// auflistung der bisherigen Bestellung
 		}
 		
 	}
 	
-	public static boolean mehrBurger() {
+	public boolean mehrBurger() {
 		boolean antwort;
 		System.out.println("Wollen sie einen weiteren Burger Bestellen? <ja> oder <nein>");
 		String eingabeBestaetigung = StaticScanner.nextString();
@@ -50,13 +97,25 @@ public class Karte {
 			System.out.println("das nehme ich jetzt mal als ein <ja>");
 			antwort = false;
 		}	
+		anzahlDerBurger++;
 		return antwort;
 	}
-	/*
-	 * Speisekarte
-	 * Preise 
-	 * zur bestellung
-	 */
 	
-	
+	private void menu (ZutatenErsteller liste[]) {
+		
+		for (int i = 0; i < liste.length - 1; i++) {
+			System.out.print(liste[i].name);
+			System.out.print("\t" + liste[i].preis + "\t");
+			if (liste[i].vegetarisch == 0) {
+				System.out.println();
+			}else if(liste[i].vegetarisch == 1) {
+				System.out.println("vegetarisch");
+			}else if(liste[i].vegetarisch == 2) {
+				System.out.println("vegan");
+			}else{
+				System.out.println("ERROR Karte: menu, vegetarisch");
+			}
+		}
+		System.out.println("\n");	
+	}
 }

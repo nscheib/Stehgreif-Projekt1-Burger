@@ -15,12 +15,11 @@ public class Zutat {
 	private int burger6[][];
 	private int burger7[][];
 	private static Broetchen [] broetchenListe = new Broetchen [anzahlBroetchenSorten];
-	private static Salate [] salatListe = new Salate [anzahlSalatSorten];
-	private static Saucen [] saucenListe = new Saucen [anzahlSaucenSorten];
 	private static Bratlinge [] bratlingListe = new Bratlinge [anzahlBratlingSorten];
 	private static Gemuese [] gemueseListe = new Gemuese [anzahlGemueseSorten];
-	
-	
+	private static Salate [] salatListe = new Salate [anzahlSalatSorten];
+	private static Saucen [] saucenListe = new Saucen [anzahlSaucenSorten];
+
 	public void vorgegebeneBroetchen() {
 		//bitter, fett, salzig, sauer, scharf, suess, umami, normal
 		String [] geschmackHamburger = {"Fett", "Suess", "Normal"};
@@ -28,10 +27,10 @@ public class Zutat {
 		String [] geschmackVegan = {"Salzig"};
 		String [] geschmackCiabatta = {"Fett"}; 
 		//breite, preis, vegetarisch, geschmack, zubereitungsDauer, name
-		Broetchen hamburgerBroetchen = new Broetchen (27, 0.85, 2, 90l, geschmackHamburger, "Hamburger Broetchen");
-		Broetchen sesamBroetchen = new Broetchen (28, 0.95, 2, 90l, geschmackSesam, "Sesam Broetchen......");
+		Broetchen hamburgerBroetchen = new Broetchen (27, 0.85, 1, 90l, geschmackHamburger, "Hamburger Broetchen");
+		Broetchen sesamBroetchen = new Broetchen (28, 0.95, 1, 90l, geschmackSesam, "Sesam Broetchen......");
 		Broetchen veganesBroetchen = new Broetchen (34, 0.55, 2, 240l, geschmackVegan, "Veganer Broetchen");
-		Broetchen ciabatta = new Broetchen (41, 0.45, 2, 330l, geschmackCiabatta, "Ciabatta Broetchen");
+		Broetchen ciabatta = new Broetchen (41, 0.45, 1, 330l, geschmackCiabatta, "Ciabatta Broetchen");
 		broetchenListe[0] = hamburgerBroetchen;
 		broetchenListe[1] = sesamBroetchen;
 		broetchenListe[2] = veganesBroetchen;
@@ -40,7 +39,7 @@ public class Zutat {
 	
 	public void vorgegebeneSalate() {
 		String [] geschmackEisberg = {"Normal"};
-		String [] geschmackRucola = {"Bitter"};
+		String [] geschmackRucola = {"Sauer"};
 		Salate eisbergSalat = new Salate (5, 0.18, 2, 5l, geschmackEisberg, "Eisbergsalat");
 		Salate rucolaSalat = new Salate (3, 0.25, 2, 3l, geschmackRucola, "Rucolasalat");
 		salatListe[0] = eisbergSalat;

@@ -52,7 +52,8 @@ public class Bestellung {
 	}
 		
 	public int burger(int komponente, ZutatenErsteller zutatenListe[]) {
-		boolean korrekt = true;		
+		boolean korrekt = true;	
+		int eingabe = 0;
 		do {
 			System.out.println("Bitte waehlen sie eine Zutat, mittels der dahinterstehenden Zahl:");		
 			if (komponente > 0) {
@@ -60,8 +61,11 @@ public class Bestellung {
 			}
 			for (int i = 0; i < zutatenListe.length - 1; i++) {
 				System.out.println(zutatenListe[i].name +"\t <"+ (i+1)+">");		
-			}					
-			int eingabe = StaticScanner.nextInt();
+			}			
+			do {
+				System.out.println("Bitte geben sie eine passende Zahl ein.");
+				eingabe = StaticScanner.nextInt();
+			}while (eingabe > 8 );
 			if (eingabe == 0 && komponente != 0) {											//ueberspringen einer Zutat
 				System.out.println("Sie wollen diese Zutat ueberspringen?");
 				korrekt = bestaetigung();
@@ -71,7 +75,7 @@ public class Bestellung {
 			}else if (eingabe + 1 < zutatenListe.length || eingabe > 0){					//bestaetigen einer erlaubten auswahl
 				System.out.println("Wollen sie das " + zutatenListe[eingabe - 1].name + " haben?" );
 				korrekt = bestaetigung();
-				zusammenstellung[komponente][0] = eingabe;
+				zusammenstellung[komponente][0] = eingabe - 1;
 				if (komponente != 0) {
 					extraLage(komponente);													//extra Wurst gefaellig?
 				}
@@ -117,7 +121,23 @@ public class Bestellung {
 		}
 	}
 	
-	private boolean bestaetigung() {
+	private int abfrage () {
+		int eingabe = 0;
+		boolean korrekt = false;
+		do {
+			try {
+				eingabe = StaticScanner.nextInt();
+				
+			}catch(NumberFormatException ex) {
+				System.out.println("Sie muessen eine Zahl eingeben");
+				continue;
+			}
+			korrekt = true;
+		}while(korrekt);
+		return eingabe;
+	}
+	
+ 	private boolean bestaetigung() {
 		boolean antwort;
 		String eingabeBestaetigung = StaticScanner.nextString();
 		if (eingabeBestaetigung.equals("nein")){
