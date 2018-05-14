@@ -1,5 +1,7 @@
 // IMPORT --------------------------------------------//
 import de.hsrm.mi.prog.util.StaticScanner;
+
+import java.awt.*;
 // IMPORT --------------------------------------------//
 
 /**
@@ -11,17 +13,21 @@ public class Karte {
 	
 	private int anzahlDerBurger = 0;
 
+	private int [][] bestellung;
+	private Broetchen broetchenListe [] = Zutat.getBroetchenListe();
+	private String eingabe;
+
 	/**
 	 * Methode gibt die Verschiedenen Eingabebefehlen mit der passenden Erklaerung aus
 	 */
 	public void ausgabe(){
 		
-		String text1 = "Willkommen beim Burgermeister.\r\nBitte geben Sie Ihre Bestellung fuer Ihre Lieblingsburger ein.";
-		String text2 = "Mit <menu> koennen Sie sich die vollstaendigen Zutaten anzeigen lassen.";
-		String text3 = "Mit <zutat> und der jeweiligen Nummer koennen Sie eine Zutat auswaehlen.";
-		String text4 = "Mit <bestellung> koennen sie sich ihren eigenen Burger zusammenstellen und zur abholung bestellen";
-		String text5 = "Mit <ok> koennen sie ihre Bestellung bestaetigen";
-		String text6 = "Mit <meine Burger> koennen sie ihre Kreation derzeitige abfragen";
+		String text1 = "Willkommen beim Burgermeister.\r\nBitte geben Sie Ihre Bestellung für Ihren Lieblingsburger ein.";
+		String text2 = "Mit <menu> können Sie sich die vollständigen Zutaten anzeigen lassen.";
+		String text3 = "Mit <zutat> und der jeweiligen Nummer können Sie eine Zutat auswählen.";
+		String text4 = "Mit <bestellen> können Sie sich ihren eigenen Burger zusammenstellen, belegen und nach einer Wartezeit abholen lassen";
+		String text5 = "Mit <ok> können Sie ihre Bestellung bestätigen";
+		String text6 = "Mit <mein burger> können Sie ihre derzeitige Burgerkreation abfragen";
 		System.out.println(text1);
 		System.out.println(text2);
 		System.out.println(text3);
@@ -50,7 +56,7 @@ public class Karte {
 			Saucen saucenListe [] = Zutat.getSaucenListe(); 	
 			menu(saucenListe);
 
-		}else if (eingabe.equals("bestellung")){
+		}else if (eingabe.equals("bestellung") || eingabe.equals("bestellen")){
 			Bestellung zusammensteller = new Bestellung();
 			Zubereitung inDieKueche1 = new Zubereitung (zusammensteller.bestellBeginn());
 			inDieKueche1.zubereiten();
@@ -90,8 +96,10 @@ public class Karte {
 					}
 				}
 			}
-		}else if (eingabe.equals("meine Burger")){
+		}else if (eingabe.equals("mein burger")){
 			// auflistung der bisherigen Bestellung
+			//Broetchen karte1 = broetchenListe[bestellung[1][0]];
+			//System.out.println(karte1);
 		}
 	}
 
@@ -102,16 +110,16 @@ public class Karte {
 	public boolean mehrBurger() {
 
 		boolean antwort;
-		System.out.println("Wollen sie einen weiteren Burger Bestellen? <ja> oder <nein>");
+		System.out.println("\nWollen sie einen weiteren Burger Bestellen? <ja> oder <nein> oder geben Sie einen Befehl ein: ");
 		String eingabeBestaetigung = StaticScanner.nextString();
 		if (eingabeBestaetigung.equals("nein")){
 			antwort = true;
-		}else if(eingabeBestaetigung.equals("nope")) {
+		} else if(eingabeBestaetigung.equals("nope")) {
 			antwort = true;
-		}else if(eingabeBestaetigung.equals("ja")) {
+		} else if(eingabeBestaetigung.equals("ja")) {
 			antwort = false;	
-		}else {
-			System.out.println("das nehme ich jetzt mal als ein <ja>");
+		} else {
+			System.out.println("Das interpretieren wir als ein <ja>");
 			antwort = false;
 		}	
 		anzahlDerBurger++;

@@ -55,7 +55,7 @@ public class Bestellung {
 	 */
 	public void extraLage(int komponente) {
 
-		System.out.println("Wollen sie eine Extra Lage haben?");		
+		System.out.println("Möchten Sie eine Extralarge?");
 		boolean eingabe;
 		eingabe = bestaetigung();
 		if (eingabe == true) {
@@ -75,32 +75,32 @@ public class Bestellung {
 		boolean korrekt = true;	
 		int eingabe = 0;
 		do {
-			System.out.println("Bitte waehlen sie eine Zutat, mittels der dahinterstehenden Zahl:");		
+			System.out.println("\nBitte wählen Sie eine Zutat, durch die dahinter stehende Zahl: ");
 			if (komponente > 0) {
-				System.out.println("Die <0> steht fuer das ueberspringen der Zutat");
+				System.out.println("Die <0> steht für das überspringen der Zutat... ");
 			}
 			for (int i = 0; i < zutatenListe.length - 1; i++) {
 				System.out.println(zutatenListe[i].name +"\t <"+ (i+1)+">");		
 			}			
 			do {
-				System.out.println("Bitte geben sie eine passende Zahl ein.");
+				System.out.print("\nBitte geben Sie für die gewünschte Zutat die passende Zahl ein: ");
 				eingabe = StaticScanner.nextInt();
 			}while (eingabe > 8 );
 			if (eingabe == 0 && komponente != 0) {											//ueberspringen einer Zutat
-				System.out.println("Sie wollen diese Zutat ueberspringen?");
+				System.out.println("Sie wollen diese Zutat überspringen? ");
 				korrekt = bestaetigung();
 				zusammenstellung[komponente][1] = 0;
 			}else if (eingabe + 1 > zutatenListe.length || eingabe <= 0){					//ausherhalb der Liste gewaehlt
-				System.out.println("Bitte nehmen sie eine Zutat aus der Liste\n");
+				System.out.println("Bitte wählen Sie eine Zutat aus der Liste aus\n ");
 			}else if (eingabe + 1 < zutatenListe.length || eingabe > 0){					//bestaetigen einer erlaubten auswahl
-				System.out.println("Wollen sie das " + zutatenListe[eingabe - 1].name + " haben?" );
+				System.out.println("Wollen Sie " + zutatenListe[eingabe - 1].name + " zu Ihrer Bestellung hinzufügen? ");
 				korrekt = bestaetigung();
 				zusammenstellung[komponente][0] = eingabe - 1;
 				if (komponente != 0) {
 					extraLage(komponente);													//extra Wurst gefaellig?
 				}
 			}else {
-				System.out.println("ERROR Bestellung: burger Zutaten abfrage");
+				System.out.println("ERROR Bestellung: burger Zutaten abfrage ");
 			}
 		}while(korrekt);	
 		komponente++;
@@ -158,7 +158,7 @@ public class Bestellung {
 				eingabe = StaticScanner.nextInt();
 				
 			}catch(NumberFormatException ex) {
-				System.out.println("Sie muessen eine Zahl eingeben");
+				System.out.println("Sie müssen eine Zahl eingeben");
 				continue;
 			}
 			korrekt = true;
@@ -181,7 +181,7 @@ public class Bestellung {
 		}else if(eingabeBestaetigung.equals("ja")) {
 			antwort = false;	
 		}else {
-			System.out.println("das nehme ich jetzt mal als ein <ja>");
+			System.out.println("Das interpretieren wir als ein <ja>");
 			antwort = false;
 		}	
 		return antwort;
