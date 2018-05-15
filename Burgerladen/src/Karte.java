@@ -1,7 +1,5 @@
 // IMPORT --------------------------------------------//
 import de.hsrm.mi.prog.util.StaticScanner;
-
-import java.awt.*;
 // IMPORT --------------------------------------------//
 
 /**
@@ -10,12 +8,11 @@ import java.awt.*;
  *  @version 0.9
  */
 public class Karte {
-	
-	private int anzahlDerBurger = 0;
 
-	private int [][] bestellung;
-	private Broetchen broetchenListe [] = Zutat.getBroetchenListe();
-	private String eingabe;
+	private int anzahlDerBurger = 0;
+	private int[][] bestellung;
+	private int sorte;
+	private ZutatenErsteller[] liste;
 
 	/**
 	 * Methode gibt die Verschiedenen Eingabebefehlen mit der passenden Erklaerung aus
@@ -55,6 +52,7 @@ public class Karte {
 			menu(salatListe);
 			Saucen saucenListe [] = Zutat.getSaucenListe(); 	
 			menu(saucenListe);
+			ausgabe();
 
 		}else if (eingabe.equals("bestellung") || eingabe.equals("bestellen")){
 			Bestellung zusammensteller = new Bestellung();
@@ -96,10 +94,11 @@ public class Karte {
 					}
 				}
 			}
+			ausgabe();
 		}else if (eingabe.equals("mein burger")){
 			// auflistung der bisherigen Bestellung
-			//Broetchen karte1 = broetchenListe[bestellung[1][0]];
-			//System.out.println(karte1);
+			burgerAnzeigen(bestellung,sorte,liste);
+			ausgabe();
 		}
 	}
 
@@ -146,5 +145,26 @@ public class Karte {
 			}
 		}
 		System.out.println("\n");	
+	}
+
+
+	private void burgerAnzeigen(int [][] bestellung, int sorte, ZutatenErsteller [] liste){
+
+		//int test = 0;
+		//Zutat ausgeben[] = new Zutat[5];
+
+		ZutatenErsteller test = liste[bestellung[sorte][0]];
+		System.out.println(test);
+		/*
+		for(int j = 0; j < anzahlDerBurger; j++) {
+			System.out.println("Burger Nummer: " + (j+1));
+			for(int k = 0; k < 5; k++) {
+				//ausgeben = burger.getBurger1(zusammenstellung);
+				//test = zusammenstellung[komponente + k][1];
+				System.out.println(ausgeben);
+			}
+			System.out.println("///");
+		}
+		*/
 	}
 }
