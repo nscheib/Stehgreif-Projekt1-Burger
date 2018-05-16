@@ -32,13 +32,13 @@ public class Burger {
 		this.sauce = sauce;
 	}// END setSaucen
 
-	
 }// END Burger
 
+
 	/*	
-	max. 8 Zutaten 
-	max. 10 bestellbar
-	Vegan/ vegetarisch 
-	Preis
-	vorgefertigte burger
+	* max. 8 Zutaten 
+	* max. 10 bestellbar
+	* Vegan/ vegetarisch 
+	* Preis
+	* vorgefertigte burger
 	*/
