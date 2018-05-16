@@ -26,7 +26,7 @@ public class Broetchen extends ZutatenErsteller{
 		this.zubereitungsDauer = zubereitungsDauer;
 		this.geschmack = geschmack;
 		this.name = name;
-	}
+	}// END Broetchen
 
 	/**
 	 * Methode zur Ueberpruefung der Eingabe zur Dicke/Menge des Broetchens
@@ -46,7 +46,7 @@ public class Broetchen extends ZutatenErsteller{
 				korrekt = bestaetigung();
 			}			
 		}while (korrekt);
-	}
+	}// END neueZutatBreite
 
 	/**
 	 * Methode getter zum weiter geben der dicke des Broetchen
@@ -54,6 +54,6 @@ public class Broetchen extends ZutatenErsteller{
 	 */
 	public int getBreiteBroetchen() {
 		return breite;	
-	}
+	}// END getBreiteBroetchen
 	
-}
+}// END Broetchen
