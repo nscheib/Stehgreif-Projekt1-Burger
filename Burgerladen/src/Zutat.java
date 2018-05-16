@@ -1,6 +1,3 @@
-// IMPORT --------------------------------------------//
-import de.hsrm.mi.prog.util.StaticScanner;
-// IMPORT --------------------------------------------//
 
 /**
  *  Zutat, dient zum verwalten der verschiedenen Zutaten und die dazugehoerigen Parameter
@@ -14,13 +11,14 @@ public class Zutat {
 	private static int anzahlSaucenSorten = 5;
 	private static int anzahlBratlingSorten = 5;
 	private static int anzahlGemueseSorten = 5;
-	private int burger1[][];
-	private int burger2[][];
-	private int burger3[][];
-	private int burger4[][];
-	private int burger5[][];
-	private int burger6[][];
-	private int burger7[][];
+	private static int burger1[][];
+	private static int burger2[][];
+	private static int burger3[][];
+	private static int burger4[][];
+	private static int burger5[][];
+	private static int burger6[][];
+	private static int burger7[][];
+	private static int burger8[][];
 	private static Broetchen [] broetchenListe = new Broetchen [anzahlBroetchenSorten];
 	private static Bratlinge [] bratlingListe = new Bratlinge [anzahlBratlingSorten];
 	private static Gemuese [] gemueseListe = new Gemuese [anzahlGemueseSorten];
@@ -166,6 +164,10 @@ public class Zutat {
 	public void setBurger1 (int bestellung [][]) {
 		burger1 = bestellung;		
 	}
+	
+	public int[][] getBurger1 () {
+		return burger1;
+	}
 
 	/**
 	 * Methode setzt den zeiten Burger fest
@@ -173,6 +175,10 @@ public class Zutat {
 	 */
 	public void setBurger2 (int bestellung [][]) {
 		burger2 = bestellung;		
+	}
+	
+	public int[][] getBurger2 () {
+		return burger2;
 	}
 
 	/**
@@ -182,6 +188,10 @@ public class Zutat {
 	public void setBurger3 (int bestellung [][]) {
 		burger3 = bestellung;		
 	}
+	
+	public int[][] getBurger3 () {
+		return burger3;
+	}
 
 	/**
 	 * Methode setzt den vierten Burger fest
@@ -189,6 +199,10 @@ public class Zutat {
 	 */
 	public void setBurger4 (int bestellung [][]) {
 		burger4 = bestellung;		
+	}
+	
+	public int[][] getBurger4 () {
+		return burger4;
 	}
 
 	/**
@@ -198,6 +212,10 @@ public class Zutat {
 	public void setBurger5 (int bestellung [][]) {
 		burger5 = bestellung;		
 	}
+	
+	public int[][] getBurger5 () {
+		return burger5;
+	}
 
 	/**
 	 * Methode setzt den sechsten Burger fest
@@ -206,6 +224,10 @@ public class Zutat {
 	public void setBurger6 (int bestellung [][]) {
 		burger6 = bestellung;		
 	}
+	
+	public int[][] getBurger6 () {
+		return burger6;
+	}
 
 	/**
 	 * Methode setzt den siebten Burger fest
@@ -213,6 +235,22 @@ public class Zutat {
 	 */
 	public void setBurger7 (int bestellung [][]) {
 		burger7 = bestellung;		
+	}
+	
+	public int[][] getBurger7 () {
+		return burger7;
+	}
+	
+	/**
+	 * Methode setzt den achten Burger fest
+	 * @param bestellung setzt die Parameter fuer die einzelen Bestellzutaten fest
+	 */
+	public void setBurger8 (int bestellung [][]) {
+		burger8 = bestellung;		
+	}
+	
+	public int[][] getBurger8 () {
+		return burger8;
 	}
 	
 }

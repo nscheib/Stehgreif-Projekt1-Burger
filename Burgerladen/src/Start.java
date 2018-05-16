@@ -30,8 +30,11 @@ public class Start {
 		zutat.vorgegebenesGemuese();
 		zutat.vorgegebeneSalate();
 		zutat.vorgegebeneSaucen();		
+		String text1 = "Willkommen beim Burgermeister.\r\nBitte geben Sie Ihre Bestellung für Ihren Lieblingsburger ein.";
+		System.out.println(text1);
 		Karte willkommen = new Karte();
 		willkommen.ausgabe();
+		System.out.println("Wir wuenschen ihnen einen guten Appetit.");
 	}
 
 }

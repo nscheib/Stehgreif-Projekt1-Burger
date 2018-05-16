@@ -32,9 +32,9 @@ public class Zubereitung {
 	private int suess = 0;
 	private int umami = 0;
 	private int normal = 0;
-	double preis;
-	int breite;
-	int vegetarisch = 1;
+	private double preis;
+	private int breite;
+	private int vegetarisch = 2;
 
 	/**
 	 *  Der Konstruktor fuer die Zubereitung setzt verschiedene Parameter fest
@@ -44,7 +44,17 @@ public class Zubereitung {
 		this.bestellung = bestellung;
 		
 	}
-
+	
+	public double berechnePreis() {
+		preis = abfragePreis(BROETCHENSORTE, broetchenListe);
+		preis += abfragePreis(BRATLINGSORTE, bratlingListe);
+		preis += abfragePreis(GEMUESESORTE, gemueseListe);
+		preis += abfragePreis(SALATSORTE, salatListe);
+		preis += abfragePreis(SAUCENSORTE, saucenListe);
+		return preis;
+	}
+	
+	
 	/**
 	 * Methode berechnet mithilfe der Zubereitungsdauer der Zutaten eine gesamte Zubereitungsdauer in Millisecounds
 	 */
@@ -95,16 +105,11 @@ public class Zubereitung {
 	 * Methode zum "verpacken" des Burgers und die damit verbundene Zeit
 	 */
 	public String essenVerpacken() {
-		
-		
+
 		String endGeschmack = "Ein wahrlich Individueller Burger";
 		
 		if (zubereitet == true) {
-			preis = abfragePreis(BROETCHENSORTE, broetchenListe);
-			preis += abfragePreis(BRATLINGSORTE, bratlingListe);
-			preis += abfragePreis(GEMUESESORTE, gemueseListe);
-			preis += abfragePreis(SALATSORTE, salatListe);
-			preis += abfragePreis(SAUCENSORTE, saucenListe);
+			
 			breite = breiteBroetchen;					//Broetchengeht beim backen um 2% auf
 			if (bestellung [1][1] == 2) {
 				breite += breiteBratling;
@@ -122,13 +127,13 @@ public class Zubereitung {
 				endGeschmack = "Ganz schoen bitter.";
 			}else if (fett >= 5){
 				endGeschmack = "Der Burger ist mindestens so fettig wie du.";
-			}else if (sauer >= 3){ 
+			}else if (sauer >= 4){ 
 				endGeschmack = "Sauer ist er ja schon.";
-			}else if (salzig >= 3){
+			}else if (salzig >= 4){
 				endGeschmack = "Danach solltest du etwas trinken.";
 			}else if (scharf >= 4){ 
 				endGeschmack = "Dir wird schwindelig und du kippst um rip.";
-			}else if (suess >= 3){
+			}else if (suess >= 4){
 				endGeschmack= "Das ist mehr eine Suessigkeit, als ein Burger.";
 			}else if (umami >= 5){ 
 				endGeschmack = "Das ist ein Veganer Albtraum.";
@@ -136,11 +141,11 @@ public class Zubereitung {
 				endGeschmack = "Dies ist ein klassischer Burger.";
 			}
 			
-			abfrageVegetarisch (vegetarisch, BROETCHENSORTE, broetchenListe);
-			abfrageVegetarisch (vegetarisch, BRATLINGSORTE, bratlingListe);
-			abfrageVegetarisch (vegetarisch, GEMUESESORTE, gemueseListe);			
-			abfrageVegetarisch (vegetarisch, SALATSORTE, salatListe);
-			abfrageVegetarisch (vegetarisch, SAUCENSORTE, saucenListe);
+			vegetarisch = abfrageVegetarisch (vegetarisch, BROETCHENSORTE, broetchenListe);
+			vegetarisch = abfrageVegetarisch (vegetarisch, BRATLINGSORTE, bratlingListe);
+			vegetarisch = abfrageVegetarisch (vegetarisch, GEMUESESORTE, gemueseListe);			
+			vegetarisch = abfrageVegetarisch (vegetarisch, SALATSORTE, salatListe);
+			vegetarisch = abfrageVegetarisch (vegetarisch, SAUCENSORTE, saucenListe);
 			
 			return endGeschmack;
 		}else{
@@ -253,6 +258,27 @@ public class Zubereitung {
 		vegetarisch = liste[bestellung[sorte][0]].getVegetarisch();
 		}
 		return vegetarisch;
+	}
+	
+	public int getBreite() {
+		return breite;
+	}
+	
+	public double getPreis() {
+		return preis;
+	}
+	
+	public String getVegetarisch () {
+		if (vegetarisch == 2) {		
+			return "vegan";
+		}else if(vegetarisch == 1) {
+			return "vegetarisch";
+		}else if(vegetarisch == 0){
+			return "enthaelt fleisch";
+		}else{
+			return "ERROR Zubereitung vegetarischer String";
+		}
+		
 	}
 	
 }

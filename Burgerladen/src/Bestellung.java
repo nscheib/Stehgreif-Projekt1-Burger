@@ -10,12 +10,11 @@ import de.hsrm.mi.prog.util.StaticScanner;
 public class Bestellung {
 
 	private int zusammenstellung[][] = new int [5][2];
-	private Zutat zutat = new Zutat();
-	private Broetchen broetchenListe [] = zutat.getBroetchenListe();
-	private Bratlinge bratlingListe [] = zutat.getBratlingListe();
-	private Gemuese gemueseListe [] = zutat.getGemueseListe();
-	private Salate salatListe [] = zutat.getSalatListe();
-	private Saucen saucenListe [] = zutat.getSaucenListe();
+	private Broetchen broetchenListe [] = Zutat.getBroetchenListe();
+	private Bratlinge bratlingListe [] = Zutat.getBratlingListe();
+	private Gemuese gemueseListe [] = Zutat.getGemueseListe();
+	private Salate salatListe [] = Zutat.getSalatListe();
+	private Saucen saucenListe [] = Zutat.getSaucenListe();
 	private int burgerNummer = 0;
 
 	/**
@@ -144,28 +143,7 @@ public class Bestellung {
 			break;
 		}
 	}
-
-	/**
-	 * Methode ueberprueft die Eingabe und faengt eine moegliche Exeption ab
-	 * @return eingabe gibt die Eingabe zurueck
-	 */
-	private int abfrage () {
-
-		int eingabe = 0;
-		boolean korrekt = false;
-		do {
-			try {
-				eingabe = StaticScanner.nextInt();
-				
-			}catch(NumberFormatException ex) {
-				System.out.println("Sie müssen eine Zahl eingeben");
-				continue;
-			}
-			korrekt = true;
-		}while(korrekt);
-		return eingabe;
-	}
-
+	
 	/**
 	 * Methode zur Ueberpruefung der Eingabe, ob die Zutat gewaehlt werden moechte
 	 * @return antwort gibt die eingegebene Antwort zurueck

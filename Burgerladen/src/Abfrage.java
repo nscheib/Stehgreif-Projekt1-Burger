@@ -25,19 +25,13 @@ public class Abfrage {
 				eingabeControlle = false;
 			}else if (eingegeben.equals("mein burger")) {
 				eingabeControlle = false;
-			}else if (eingegeben.equals("ok")) {
-				eingabeControlle = false;
-			}else if (eingegeben.equals("Ok")) {
-				eingabeControlle = false;
-			}else if (eingegeben.equals("OK")) {
-				eingabeControlle = false;
-			}else if (eingegeben.equals("zutat")) {
-				eingabeControlle = false;
-			}else if (eingegeben.equals("Zutat")) {
-				eingabeControlle = false;
 			}else if (eingegeben.equals("bestellen")) {
 				eingabeControlle = false;
 			}else if (eingegeben.equals("bestellung")) {
+				eingabeControlle = false;
+			}else if (eingegeben.equals("zubereitung")) {
+				eingabeControlle = false;
+			}else if (eingegeben.equals("zubereiten")) {
 				eingabeControlle = false;
 			}else {
 				System.out.println("Keine gültiger Befehl. Bitte geben Sie einen korrekten Befehl ein ein!");
