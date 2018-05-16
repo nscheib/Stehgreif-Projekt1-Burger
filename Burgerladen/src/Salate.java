@@ -26,7 +26,7 @@ public class Salate extends ZutatenErsteller{
 		this.zubereitungsDauer = zubereitungsDauer;
 		this.geschmack = geschmack;
 		this.name = name;
-	}
+	}// END Salate
 
 	/**
 	 * Methode zur Ueberpruefung der Eingabe zur Dicke/Menge des Salates
@@ -46,6 +46,6 @@ public class Salate extends ZutatenErsteller{
 				korrekt = bestaetigung();
 			}			
 		}while (korrekt);
-	}
+	}// END neueZutatBreite
 
-}
+}// END Salate
