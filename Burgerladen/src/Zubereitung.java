@@ -43,7 +43,7 @@ public class Zubereitung {
 	public Zubereitung (int [][] bestellung) {
 		
 		this.bestellung = bestellung;
-	}
+	}// END Zubereitung
 	
 	/**
 	 * Methode die den Gesamtpreis des Burgers zusammenrechnet
@@ -57,7 +57,7 @@ public class Zubereitung {
 		preis += abfragePreis(SALATSORTE, salatListe);
 		preis += abfragePreis(SAUCENSORTE, saucenListe);
 		return preis;
-	}
+	}// END berechnePreis
 	
 	
 	/**
@@ -105,7 +105,7 @@ public class Zubereitung {
 			fertig = System.currentTimeMillis();
 		}
 		zubereitet = true;
-	}
+	}// END zubereiten
 
 	/**
 	 * Methode zum "verpacken" des Burgers und die damit verbundene Zeit, und Gesamtdicke des Burgers
@@ -159,9 +159,7 @@ public class Zubereitung {
 			 String error = "Das Essen muss noch zubereitet werden";
 			 return error;
 		}
-		
-		
-	}
+	}// END essenVerpacken
 
 	/**
 	 * Methode zum berechnen der Zubereitungsdauer je Burger
@@ -179,7 +177,7 @@ public class Zubereitung {
 			wert = 0;
 		}	
 		return wert;
-	}
+	}// END abfrageZubereitungsdauer
 
 	/**
 	 * Methode zum berechnen des Preises je Burger
@@ -198,7 +196,7 @@ public class Zubereitung {
 			wert = 0;
 		}	
 		return wert;
-	}
+	}// END abfragePreis
 
 	/**
 	 * Methode zum berechnen der Dicke je Burger
@@ -217,7 +215,7 @@ public class Zubereitung {
 			wert = 0;
 		}	
 		return wert;
-	}
+	}// END abfrageBreite
 
 	/**
 	 * Methode zum ueberpruefen welche Geschmacksrichtungen pro Burger enthalten sind
@@ -254,7 +252,7 @@ public class Zubereitung {
 				normal++;
 			}
 		}
-	}
+	}// END abfrageGeschmack
 
 	/**
 	 * Methode um den Burger als typ zu deklarieren (vegan, vegetarisch oder fleisch)
@@ -269,16 +267,28 @@ public class Zubereitung {
 		vegetarisch = liste[bestellung[sorte][0]].getVegetarisch();
 		}
 		return vegetarisch;
-	}
+	}// END abfrageVegetarisch
 	
+	/**
+	 * Methode zum abfragen der Dicke
+	 * @return gibt die Dicke zurueck
+	 */
 	public int getBreite() {
 		return breite;
-	}
-	
+	}// END getBreite
+
+	/**
+	 * Methode zum abfragen des Preises
+	 * @return gibt den Preis zurueck
+	 */
 	public double getPreis() {
 		return preis;
-	}
+	}// END getPreis
 	
+	/**
+	 * Methode um abfragen zu koennen, ob der Burger vegetarisch, vegan oder aus Fleisch ist
+	 * @return gibt den passenden Begriff als String zurueck
+	 */
 	public String getVegetarisch () {
 		if (vegetarisch == 2) {		
 			return "vegan";
@@ -289,10 +299,10 @@ public class Zubereitung {
 		}else{
 			return "ERROR Zubereitung vegetarischer String";
 		}
-		
-	}
+	}// END getVegetarisch
 	
-}
+}// END Zubereitung
+
 
 /*
  * Name des Burgers individuell erstellbar
