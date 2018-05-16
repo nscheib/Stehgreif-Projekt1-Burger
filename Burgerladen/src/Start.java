@@ -19,11 +19,9 @@ public class Start {
 		
 		/*Karte speiseKarte = new Karte();
 		speiseKarte.ausgabe();
-
 		SesamBroetchen essen = new SesamBroetchen();
 		essen.ausgabe();
 		*/
-
 		Zutat zutat = new Zutat();
 		zutat.vorgegebeneBroetchen();
 		zutat.vorgegebeneBratlinge();
@@ -35,6 +33,6 @@ public class Start {
 		Karte willkommen = new Karte();
 		willkommen.ausgabe();
 		System.out.println("Wir wünschen ihnen einen guten Appetit.");
-	}
+	}// END main
 
-}
+}// END Start
