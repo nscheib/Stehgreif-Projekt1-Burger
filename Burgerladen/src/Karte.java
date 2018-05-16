@@ -111,6 +111,10 @@ public class Karte {
 		System.out.println("\n");	
 	}
 
+	/**
+	 * Methode zeigt den ausgesuchten burger an mit Preis
+	 * @param endAusgabe zum abfragen, ob die Burger zum zubereiten bestellt wurden
+	 */
 	private void burgerAnzeigen(boolean endAusgabe){
 		Zutat bestellterBurger = new Zutat();
 		
@@ -129,8 +133,7 @@ public class Karte {
 				preis8 = inDieKueche8.berechnePreis();
 				System.out.println("Preis: " + preis8);
 				if(endAusgabe == true) {
-				System.out.println(inDieKueche8.getBreite() + inDieKueche8.getVegetarisch());
-				
+					System.out.println(inDieKueche8.getBreite() + inDieKueche8.getVegetarisch());
 				}
 			case 7:
 				int burger7[][] = bestellterBurger.getBurger7();
@@ -141,6 +144,9 @@ public class Karte {
 				extra(saucenListe, burger7, 4);
 				preis7 = inDieKueche7.berechnePreis();
 				System.out.println("Preis: " + preis7);
+				if(endAusgabe == true) {
+					System.out.println(inDieKueche7.getBreite() + inDieKueche7.getVegetarisch());
+				}	
 			case 6:
 				int burger6[][] = bestellterBurger.getBurger6();
 				System.out.print(broetchenListe[burger6[0][0]].name);
@@ -150,6 +156,9 @@ public class Karte {
 				extra(saucenListe, burger6, 4);
 				preis6 = inDieKueche6.berechnePreis();
 				System.out.println("Preis: " + preis6);
+				if(endAusgabe == true) {
+					System.out.println(inDieKueche6.getBreite() + inDieKueche6.getVegetarisch());
+				}	
 			case 5:
 				int burger5[][] = bestellterBurger.getBurger5();
 				System.out.print(broetchenListe[burger5[0][0]].name);
@@ -159,6 +168,9 @@ public class Karte {
 				extra(saucenListe, burger5, 4);
 				preis5 = inDieKueche5.berechnePreis();
 				System.out.println("Preis: " + preis5);
+				if(endAusgabe == true) {
+					System.out.println(inDieKueche5.getBreite() + inDieKueche5.getVegetarisch());
+				}	
 			case 4:
 				int burger4[][] = bestellterBurger.getBurger4();
 				System.out.print(broetchenListe[burger4[0][0]].name);
@@ -168,6 +180,9 @@ public class Karte {
 				extra(saucenListe, burger4, 4);
 				preis4 = inDieKueche4.berechnePreis();
 				System.out.println("Preis: " + preis4);
+				if(endAusgabe == true) {
+					System.out.println(inDieKueche4.getBreite() + inDieKueche4.getVegetarisch());
+				}	
 			case 3: 
 				int burger3[][] = bestellterBurger.getBurger3();
 				System.out.print(broetchenListe[burger3[0][0]].name);
@@ -177,6 +192,9 @@ public class Karte {
 				extra(saucenListe, burger3, 4);
 				preis3 = inDieKueche3.berechnePreis();
 				System.out.println("Preis: " + preis3);
+				if(endAusgabe == true) {
+					System.out.println(inDieKueche3.getBreite() + inDieKueche3.getVegetarisch());
+				}
 			case 2: 
 				int burger2[][] = bestellterBurger.getBurger2();
 				System.out.print(broetchenListe[burger2[0][0]].name);
@@ -186,6 +204,9 @@ public class Karte {
 				extra(saucenListe, burger2, 4);
 				preis2 = inDieKueche2.berechnePreis();
 				System.out.println("Preis: " + preis2);
+				if(endAusgabe == true) {
+					System.out.println(inDieKueche2.getBreite() + inDieKueche2.getVegetarisch());
+				}
 			case 1:
 				int burger1[][] = bestellterBurger.getBurger1();	
 				System.out.print(broetchenListe[burger1[0][0]].name);
@@ -195,13 +216,20 @@ public class Karte {
 				extra(saucenListe, burger1, 4);
 				preis1 = inDieKueche1.berechnePreis();
 				System.out.println("Preis: " + preis1);
+				if(endAusgabe == true) {
+					System.out.println(inDieKueche1.getBreite() + inDieKueche1.getVegetarisch());
+				}
 			}	
 		}else {
 			System.out.println("ERROR Karte bestellte Burger ausgabe");
 		}
 	}
 	
+	/**
+	 * Methode die den Burger "zubereitet" die Burger werden gespeichert und der Gesamtpreis wird verrechnet
+	 */
 	private void zubereitungDesBurgers() {
+		
 		switch (anzahlDerBurger) {
 		case 8:
 			inDieKueche8.zubereiten();
@@ -237,6 +265,9 @@ public class Karte {
 		System.out.println("Alles zusammen kostet dich: " + preis);
 	}
 	
+	/**
+	 * Methode die jeden einzelnen Burger speichert, danach kann abgefragt werden, ob noch ein weiterer zusammengestellt werden möchte
+	 */
 	private void bestellenDesBurgers() {
 		
 		switch (anzahlDerBurger) {
@@ -299,6 +330,12 @@ public class Karte {
 		
 	}
 	
+	/**
+	 * Methode gibt die Zutaten mit Name, Preisen uvm. aus
+	 * @param liste gibt die verschiedenen Zutaten an die Methode weiter
+	 * @param lage gewaehlten Zutaten an die Methode weiter
+	 * @param zutatenliste gibt die gesamten Zuaten an die Methode weiter
+	 */
 	private void extra(ZutatenErsteller zutatenliste [], int liste[][], int lage) {
 		
 		if (liste[lage][1] == 2) {
