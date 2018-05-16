@@ -44,7 +44,7 @@ public class Zutat {
 		broetchenListe[1] = sesamBroetchen;
 		broetchenListe[2] = veganesBroetchen;
 		broetchenListe[3] = ciabatta;
-	}
+	}// END vorgegebeneBroetchen
 
 	/**
 	 * Methode enthaelt die verschiedenen Salatsorten mit den speziefischen Eigenschaften, wie Geschmack, Zubereitungsdauer, Preis uvm.
@@ -57,7 +57,7 @@ public class Zutat {
 		Salate rucolaSalat = new Salate (3, 0.25, 2, 3l, geschmackRucola, "Rucolasalat");
 		salatListe[0] = eisbergSalat;
 		salatListe[1] = rucolaSalat;	
-	}
+	}// END vorgegebeneSalate
 
 	/**
 	 * Methode enthaelt die verschiedenen Saucensorten mit den speziefischen Eigenschaften, wie Geschmack, Zubereitungsdauer, Preis uvm.
@@ -76,7 +76,7 @@ public class Zutat {
 		saucenListe[1] = sandwichSauce;
 		saucenListe[2] = chiliSauce;
 		saucenListe[3] = honigSenfSauce;
-	}
+	}// END vorgegebeneSaucen
 
 	/**
 	 * Methode enthaelt die verschiedenen Bratlingssorten mit den speziefischen Eigenschaften, wie Geschmack, Zubereitungsdauer, Preis uvm.
@@ -95,7 +95,7 @@ public class Zutat {
 		bratlingListe[1] = haenchenFleisch;
 		bratlingListe[2] = falafel;
 		bratlingListe[3] = gemuese;	
-	}
+	}// END vorgegebeneBratlinge
 
 	/**
 	 * Methode enthaelt die verschiedenen Gemuesesorten mit den speziefischen Eigenschaften, wie Geschmack, Zubereitungsdauer, Preis uvm.
@@ -115,7 +115,7 @@ public class Zutat {
 		gemueseListe[1] = salzGurke;
 		gemueseListe[2] = zwiebelRinge;
 		gemueseListe[3] = jalapeno;	
-	}
+	}// END vorgegebenesGemuse
 
 	/**
 	 * Methode zum zurueckgeben der Broetchensorten
@@ -123,7 +123,7 @@ public class Zutat {
 	 */
 	public static Broetchen[] getBroetchenListe() {
 		return broetchenListe;
-	}
+	}// END getBroetchenListe
 
 	/**
 	 * Methode zum zurueckgeben der Bratlingssorten
@@ -131,7 +131,7 @@ public class Zutat {
 	 */
 	public static Bratlinge[] getBratlingListe() {
 		return bratlingListe;
-	}
+	}// END getBratlingListe
 
 	/**
 	 * Methode zum zurueckgeben der Gemuesesorten
@@ -139,7 +139,7 @@ public class Zutat {
 	 */
 	public static Gemuese[] getGemueseListe() {
 		return gemueseListe;
-	}
+	}// END getGemueseListe
 
 	/**
 	 * Methode zum zurueckgeben der Salatsorten
@@ -147,7 +147,7 @@ public class Zutat {
 	 */
 	public static Salate[] getSalatListe() {
 		return salatListe;
-	}
+	}// END getSalatListe
 
 	/**
 	 * Methode zum zurueckgeben der Saucensorten
@@ -155,7 +155,7 @@ public class Zutat {
 	 */
 	public static Saucen[] getSaucenListe() {
 		return saucenListe;
-	}
+	}// END getSaucenListe
 
 	/**
 	 * Methode setzt den ersten Burger fest
@@ -163,7 +163,7 @@ public class Zutat {
 	 */
 	public void setBurger1 (int bestellung [][]) {
 		burger1 = bestellung;		
-	}
+	}// END setBurger1
 	
 	/**
 	 * Methode zum zurueckgeben des ersten Burgers
@@ -171,7 +171,7 @@ public class Zutat {
 	 */
 	public int[][] getBurger1 () {
 		return burger1;
-	}
+	}// END getBurger1
 
 	/**
 	 * Methode setzt den zeiten Burger fest
@@ -179,7 +179,7 @@ public class Zutat {
 	 */
 	public void setBurger2 (int bestellung [][]) {
 		burger2 = bestellung;		
-	}
+	}// END setBurger2
 	
 	/**
 	 * Methode zum zurueckgeben des zweiten Burgers
@@ -187,7 +187,7 @@ public class Zutat {
 	 */
 	public int[][] getBurger2 () {
 		return burger2;
-	}
+	}// END setBurger2
 
 	/**
 	 * Methode setzt den dritten Burger fest
@@ -195,7 +195,7 @@ public class Zutat {
 	 */
 	public void setBurger3 (int bestellung [][]) {
 		burger3 = bestellung;		
-	}
+	}// END setBurger3
 	
 	/**
 	 * Methode zum zurueckgeben des dritten Burgers
@@ -203,7 +203,7 @@ public class Zutat {
 	 */
 	public int[][] getBurger3 () {
 		return burger3;
-	}
+	}// END getBurger3
 
 	/**
 	 * Methode setzt den vierten Burger fest
@@ -211,7 +211,7 @@ public class Zutat {
 	 */
 	public void setBurger4 (int bestellung [][]) {
 		burger4 = bestellung;		
-	}
+	}// END setBurger4
 	
 	/**
 	 * Methode zum zurueckgeben des vierten Burgers
@@ -219,7 +219,7 @@ public class Zutat {
 	 */
 	public int[][] getBurger4 () {
 		return burger4;
-	}
+	}// END getBurger4
 
 	/**
 	 * Methode setzt den fuenften Burger fest
@@ -227,7 +227,7 @@ public class Zutat {
 	 */
 	public void setBurger5 (int bestellung [][]) {
 		burger5 = bestellung;		
-	}
+	}// END setBurger5
 	
 	/**
 	 * Methode zum zurueckgeben des fuenften Burgers
@@ -235,7 +235,7 @@ public class Zutat {
 	 */
 	public int[][] getBurger5 () {
 		return burger5;
-	}
+	}// END getBurger5
 
 	/**
 	 * Methode setzt den sechsten Burger fest
@@ -243,7 +243,7 @@ public class Zutat {
 	 */
 	public void setBurger6 (int bestellung [][]) {
 		burger6 = bestellung;		
-	}
+	}// END setBurger6
 	
 	/**
 	 * Methode zum zurueckgeben des sechsten Burgers
@@ -251,7 +251,7 @@ public class Zutat {
 	 */
 	public int[][] getBurger6 () {
 		return burger6;
-	}
+	}// END getBurger6
 
 	/**
 	 * Methode setzt den siebten Burger fest
@@ -259,7 +259,7 @@ public class Zutat {
 	 */
 	public void setBurger7 (int bestellung [][]) {
 		burger7 = bestellung;		
-	}
+	}// END setBurger7
 	
 	/**
 	 * Methode zum zurueckgeben des siebten Burgers
@@ -267,7 +267,7 @@ public class Zutat {
 	 */
 	public int[][] getBurger7 () {
 		return burger7;
-	}
+	}// END getBurger7
 	
 	/**
 	 * Methode setzt den achten Burger fest
@@ -275,7 +275,7 @@ public class Zutat {
 	 */
 	public void setBurger8 (int bestellung [][]) {
 		burger8 = bestellung;		
-	}
+	}// END setBurger8
 	
 	/**
 	 * Methode zum zurueckgeben des achten Burgers
@@ -283,6 +283,8 @@ public class Zutat {
 	 */
 	public int[][] getBurger8 () {
 		return burger8;
-	}
+	}// END getBurger8
 	
-}
+}// END Zutat
+
+
