@@ -34,7 +34,7 @@ public class Start {
 		System.out.println(text1);
 		Karte willkommen = new Karte();
 		willkommen.ausgabe();
-		System.out.println("Wir wuenschen ihnen einen guten Appetit.");
+		System.out.println("Wir wünschen ihnen einen guten Appetit.");
 	}
 
 }
