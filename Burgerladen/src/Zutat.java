@@ -165,6 +165,10 @@ public class Zutat {
 		burger1 = bestellung;		
 	}
 	
+	/**
+	 * Methode zum zurueckgeben des ersten Burgers
+	 * @return burger1 gibt den gespeicherten ersten Burger zurueck
+	 */
 	public int[][] getBurger1 () {
 		return burger1;
 	}
@@ -177,6 +181,10 @@ public class Zutat {
 		burger2 = bestellung;		
 	}
 	
+	/**
+	 * Methode zum zurueckgeben des zweiten Burgers
+	 * @return burger1 gibt den gespeicherten zweiten Burger zurueck
+	 */
 	public int[][] getBurger2 () {
 		return burger2;
 	}
@@ -189,6 +197,10 @@ public class Zutat {
 		burger3 = bestellung;		
 	}
 	
+	/**
+	 * Methode zum zurueckgeben des dritten Burgers
+	 * @return burger1 gibt den gespeicherten dritten Burger zurueck
+	 */
 	public int[][] getBurger3 () {
 		return burger3;
 	}
@@ -201,6 +213,10 @@ public class Zutat {
 		burger4 = bestellung;		
 	}
 	
+	/**
+	 * Methode zum zurueckgeben des vierten Burgers
+	 * @return burger1 gibt den gespeicherten vierten Burger zurueck
+	 */
 	public int[][] getBurger4 () {
 		return burger4;
 	}
@@ -213,6 +229,10 @@ public class Zutat {
 		burger5 = bestellung;		
 	}
 	
+	/**
+	 * Methode zum zurueckgeben des fuenften Burgers
+	 * @return burger1 gibt den gespeicherten fuenften Burger zurueck
+	 */
 	public int[][] getBurger5 () {
 		return burger5;
 	}
@@ -225,6 +245,10 @@ public class Zutat {
 		burger6 = bestellung;		
 	}
 	
+	/**
+	 * Methode zum zurueckgeben des sechsten Burgers
+	 * @return burger1 gibt den gespeicherten sechsten Burger zurueck
+	 */
 	public int[][] getBurger6 () {
 		return burger6;
 	}
@@ -237,6 +261,10 @@ public class Zutat {
 		burger7 = bestellung;		
 	}
 	
+	/**
+	 * Methode zum zurueckgeben des siebten Burgers
+	 * @return burger1 gibt den gespeicherten siebten Burger zurueck
+	 */
 	public int[][] getBurger7 () {
 		return burger7;
 	}
@@ -249,6 +277,10 @@ public class Zutat {
 		burger8 = bestellung;		
 	}
 	
+	/**
+	 * Methode zum zurueckgeben des achten Burgers
+	 * @return burger1 gibt den gespeicherten achten Burger zurueck
+	 */
 	public int[][] getBurger8 () {
 		return burger8;
 	}
