@@ -38,9 +38,9 @@ public class Salate extends ZutatenErsteller{
 		do {
 			int eingabe = StaticScanner.nextInt();
 			if (eingabe > 30) {
-				System.out.println("Extra Portionen koennen bei der Bestellung aufgegeben werden, hier bitte noch nicht.");
+				System.out.println("Extra Portionen können später zur Bestellung hinzugefügt werden.");
 			}else if (eingabe < 1) {
-				System.out.println("Du halbierst das Blatt noch der laenge nach durch?!?");
+				System.out.println("Wollen Sie durch das Blatt durchschauen können??");
 			}else{
 				System.out.println("Eine Schicht Salat ist " + eingabe + "dick.");
 				korrekt = bestaetigung();
