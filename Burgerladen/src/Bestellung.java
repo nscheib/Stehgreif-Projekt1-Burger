@@ -45,9 +45,8 @@ public class Bestellung {
 			}
 		}while (komponente != 5); 		
 		burgerSpeichern();
-		return zusammenstellung;
-		//System.out.println("Ende?"); 														//Zubereiten
-	}
+		return zusammenstellung;								//Zubereiten
+	}// END bestellBeginn
 
 	/**
 	 * Methode dient der Abfrage fuer die Anzahl an Zutanten die man auf seinem Burger moechte
@@ -62,7 +61,7 @@ public class Bestellung {
 		}else{
 			zusammenstellung[komponente][1] = 2;
 		}	
-	}
+	}// END extraLage
 
 	/**
 	 * Methode zum abfragen, ob eine Zutat gewaehlt, uebersprungen und ob diese Zutat hinzugefuegt werden soll
@@ -85,7 +84,7 @@ public class Bestellung {
 				System.out.print("\nBitte geben Sie für die gewünschte Zutat die passende Zahl ein: ");
 				eingabe = StaticScanner.nextInt();
 			}while (eingabe > 8 );
-			if (eingabe == 0 && komponente != 0) {											//ueberspringen einer Zutat
+			if (eingabe == 0 && komponente != 0) {								//ueberspringen einer Zutat
 				System.out.println("Sie wollen diese Zutat überspringen? ");
 				korrekt = bestaetigung();
 				zusammenstellung[komponente][1] = 0;
@@ -96,7 +95,7 @@ public class Bestellung {
 				korrekt = bestaetigung();
 				zusammenstellung[komponente][0] = eingabe - 1;
 				if (komponente != 0) {
-					extraLage(komponente);													//extra Wurst gefaellig?
+					extraLage(komponente);								//extra Wurst gefaellig?
 				}
 			}else {
 				System.out.println("ERROR Bestellung: burger Zutaten abfrage ");
@@ -104,7 +103,7 @@ public class Bestellung {
 		}while(korrekt);	
 		komponente++;
 		return komponente;
-	}
+	}// END burger
 
 	/**
 	 * Methode zum speichern der einzelnen Burger und speichern der Anzahl an Burgern
@@ -142,7 +141,7 @@ public class Bestellung {
 			burgerNummer++;
 			break;
 		}
-	}
+	}// END burgerSpeichern
 	
 	/**
 	 * Methode zur Ueberpruefung der Eingabe, ob die Zutat gewaehlt werden moechte
@@ -163,6 +162,6 @@ public class Bestellung {
 			antwort = false;
 		}	
 		return antwort;
-	}
+	}// END bestaetigen
 	
-}
+}// END Bestellung
