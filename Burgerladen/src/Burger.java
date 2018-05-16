@@ -14,24 +14,31 @@ public class Burger {
 	
 	public void setBroetchen (Broetchen broetchen){
 		this.broetchen = broetchen;
-	}
+	}// END setBroetchen
+	
 	public void setBratlinge (Bratlinge bratling){
 		this.bratling = bratling;
-	}
+	}// END setBratling
+	
 	public void setGemuese (Gemuese gemuese){
 		this.gemuese = gemuese;
-	}
+	}// END setGemuese
+	
 	public void setSalate (Salate salate){
 		this.salat = salat;
-	}	
+	}// END setSalate
+	
 	public void setSaucen (Saucen sauce){
 		this.sauce = sauce;
-	}
+	}// END setSaucen
 
-	/*	 max. 8 Zutaten 
+	
+}// END Burger
+
+	/*	
+	max. 8 Zutaten 
 	max. 10 bestellbar
 	Vegan/ vegetarisch 
 	Preis
 	vorgefertigte burger
 	*/
-}
