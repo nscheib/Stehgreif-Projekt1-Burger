@@ -41,7 +41,7 @@ public class Karte {
 		System.out.println(text4);
 		String eingabe = Abfrage.eingabe();
 		verwaltung(eingabe);
-	}
+	}// END ausgabe
 
 	/**
 	 * Methode ruft unterschiedliche Funktionen auf, wie zb der aktuelle Status der Bestellung und gewaehlten Zutaten
@@ -65,7 +65,7 @@ public class Karte {
 			burgerAnzeigen(false);
 			ausgabe();
 		}
-	}
+	}// END verwaltung
 
 	/**
 	 * Methode zur Abfrage, ob eine weitere Bestellung getaetigt werden soll oder nicht
@@ -87,7 +87,7 @@ public class Karte {
 			antwort = false;
 		}	
 		return antwort;
-	}
+	}// END mehrBurger
 
 	/**
 	 * Methode gibt die Zutaten mit Name, Preisen uvm. aus
@@ -109,7 +109,7 @@ public class Karte {
 			}
 		}
 		System.out.println("\n");	
-	}
+	}// END menu
 
 	/**
 	 * Methode zeigt den ausgesuchten burger an mit Preis
@@ -223,7 +223,7 @@ public class Karte {
 		}else {
 			System.out.println("ERROR Karte bestellte Burger ausgabe");
 		}
-	}
+	}// END burgerAnzeigen
 	
 	/**
 	 * Methode die den Burger "zubereitet" die Burger werden gespeichert und der Gesamtpreis wird verrechnet
@@ -263,7 +263,7 @@ public class Karte {
 		burgerAnzeigen(true);
 		double preis = preis8 + preis7 + preis6 + preis5 + preis4 + preis3 + preis2 + preis1;
 		System.out.println("Alles zusammen kostet dich: " + preis);
-	}
+	}// END zubereitenDesBurgers
 	
 	/**
 	 * Methode die jeden einzelnen Burger speichert, danach kann abgefragt werden, ob noch ein weiterer zusammengestellt werden möchte
@@ -327,8 +327,7 @@ public class Karte {
 			inDieKueche8 = new Zubereitung (zusammensteller8.bestellBeginn());
 			anzahlDerBurger = 8;
 		}
-		
-	}
+	}// END bestellenDesBurgers
 	
 	/**
 	 * Methode gibt die Zutaten mit Name, Preisen uvm. aus
@@ -348,6 +347,8 @@ public class Karte {
 		}else {
 			System.out.println("ERROR Karte ausgabe extra");
 		}
-		
-	}
-}
+	}// END extra
+	
+}// END Karte
+
+
