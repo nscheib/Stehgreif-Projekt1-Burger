@@ -70,11 +70,10 @@ public class ZutatenErsteller {
 			korrekt = bestaetigung();
 			zubereitungsDauer = (eingabe / 100) * 80;									//Profibonus
 		}while(korrekt);
-		
 	}
 
 	/**
-	 * Methode um die Geschmacksriochtung festlegen zu koennen und diese zu speichern
+	 * Methode um die Geschmacksrichtung festzulegen, ueberpruefen und diese zu speichern zu koennen
 	 */
 	public void neueZutatGeschmack() {
 
@@ -173,6 +172,7 @@ public class ZutatenErsteller {
 		return antwort;
 	} 
 	
+	
 	/*
 	 * EXTRA
 	 * Zuteilung ob Broetchen oder Gemuese usw.
@@ -180,7 +180,6 @@ public class ZutatenErsteller {
 	 * vegan/vegetarisch
 	 * Menge
 	 * zubereitungs dauer und masse verlust (groesser kleiner)
-	 * 
 	 * breite
 	 * preis
 	 */
