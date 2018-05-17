@@ -37,34 +37,28 @@ public class Zubereitung {
 	private int vegetarisch = 2;
 
 	/**
-	 * Der Konstruktor fuer die Zubereitung setzt verschiedene Parameter fest
+	 *  Der Konstruktor fuer die Zubereitung setzt verschiedene Parameter fest
 	 * @param bestellung setzt fest was alles in der Bestelltung enthalten ist
 	 */
 	public Zubereitung (int [][] bestellung) {
-		
 		this.bestellung = bestellung;
-	}// END Zubereitung
-	
-	/**
-	 * Methode die den Gesamtpreis des Burgers zusammenrechnet
-	 * @return preis gibt den Gesamtpreis des Burgers zurueck
-	 */
-	public double berechnePreis() {
 		
+	}
+	
+	public double berechnePreis() {
 		preis = abfragePreis(BROETCHENSORTE, broetchenListe);
 		preis += abfragePreis(BRATLINGSORTE, bratlingListe);
 		preis += abfragePreis(GEMUESESORTE, gemueseListe);
 		preis += abfragePreis(SALATSORTE, salatListe);
 		preis += abfragePreis(SAUCENSORTE, saucenListe);
 		return preis;
-	}// END berechnePreis
+	}
 	
 	
 	/**
 	 * Methode berechnet mithilfe der Zubereitungsdauer der Zutaten eine gesamte Zubereitungsdauer in Millisecounds
 	 */
 	public void zubereiten () {
-		
 		//zeit preis breite
 		long start = System.currentTimeMillis();
 		long zeitBratlinge, zeitBroetchen, zeitGemuese, zeitSalat, fertig = start;	
@@ -83,7 +77,7 @@ public class Zubereitung {
 		while ((fertig - start) > zeitBroetchen && (fertig - start) > zeitBratlinge){
 			fertig = System.currentTimeMillis();
 			if ((fertig - start) > zeitBroetchen) {
-				System.out.println("Ihr Brötchen ist fertig. Jetzt sollte es nicht mehr lange dauern.");
+				System.out.println("Ihr Broetchen ist fertig. Jetzt sollte es nicht mehr lange dauern.");
 			}
 			if ((fertig - start) > zeitBratlinge){
 				System.out.println("Ihr Bratling ist fertig. Nur noch ein paar Minuten bitte");
@@ -105,11 +99,10 @@ public class Zubereitung {
 			fertig = System.currentTimeMillis();
 		}
 		zubereitet = true;
-	}// END zubereiten
+	}
 
 	/**
-	 * Methode zum "verpacken" des Burgers und die damit verbundene Zeit, und Gesamtdicke des Burgers
-	 * @return endGeschmack gibt den Geschmack des Burgers zurueck
+	 * Methode zum "verpacken" des Burgers und die damit verbundene Zeit
 	 */
 	public String essenVerpacken() {
 
@@ -159,7 +152,9 @@ public class Zubereitung {
 			 String error = "Das Essen muss noch zubereitet werden";
 			 return error;
 		}
-	}// END essenVerpacken
+		
+		
+	}
 
 	/**
 	 * Methode zum berechnen der Zubereitungsdauer je Burger
@@ -177,7 +172,7 @@ public class Zubereitung {
 			wert = 0;
 		}	
 		return wert;
-	}// END abfrageZubereitungsdauer
+	}
 
 	/**
 	 * Methode zum berechnen des Preises je Burger
@@ -185,18 +180,19 @@ public class Zubereitung {
 	 * @param liste setzt die Zutat fest
 	 * @return wert, gibt den berechneten Wert fuer die Gesamtkosten pro Burger zurueck
 	 */
-	private double abfragePreis(int sorte, ZutatenErsteller [] liste) {
-		
+	private double abfragePreis(int sorte, ZutatenErsteller [] liste) {	
 		double wert = 0;
 		if(bestellung[sorte][0] == 0 && bestellung [sorte][1] == EXTRALAGE) {		
 			wert = (liste[bestellung[sorte][0]].preis) * 2;
-		}else if ((bestellung[sorte][0] == 0)){
+		}else if ((bestellung[sorte][0] == 0) && (bestellung[sorte][1] == 1)){
 			wert = liste[bestellung[sorte][0]].preis;
-		}else {
+		}else if (bestellung[sorte][1] == 0){
 			wert = 0;
-		}	
+		}else {
+			System.out.println("FUCK OFF");
+		}
 		return wert;
-	}// END abfragePreis
+	}
 
 	/**
 	 * Methode zum berechnen der Dicke je Burger
@@ -204,8 +200,7 @@ public class Zubereitung {
 	 * @param liste setzt die Zutat fest
 	 * @return wert, gibt den berechneten Wert fuer die Gesamtdicke pro Burger zurueck
 	 */
-	private int abfrageBreite(int sorte, ZutatenErsteller [] liste) {
-		
+	private int abfrageBreite(int sorte, ZutatenErsteller [] liste) {	
 		int wert = 0;
 		if(bestellung[sorte][0] == 0 && bestellung [sorte][1] == EXTRALAGE) {		
 			wert = (liste[bestellung[sorte][0]].breite) * 2;
@@ -215,7 +210,7 @@ public class Zubereitung {
 			wert = 0;
 		}	
 		return wert;
-	}// END abfrageBreite
+	}
 
 	/**
 	 * Methode zum ueberpruefen welche Geschmacksrichtungen pro Burger enthalten sind
@@ -223,7 +218,6 @@ public class Zubereitung {
 	 * @param liste setzt die Zutat fest
 	 */
 	private void abfrageGeschmack (int sorte, ZutatenErsteller liste[]) {
-		
 		String geschmack [] =  liste[bestellung[sorte][0]].getGeschmack();
 		for (int i = 0; i < geschmack.length; i++) {
 			switch (geschmack[i]) {
@@ -252,7 +246,7 @@ public class Zubereitung {
 				normal++;
 			}
 		}
-	}// END abfrageGeschmack
+	}
 
 	/**
 	 * Methode um den Burger als typ zu deklarieren (vegan, vegetarisch oder fleisch)
@@ -262,33 +256,20 @@ public class Zubereitung {
 	 * @return vegetarisch, gibt zurueck welcher Typ Burger gewaehlt wurde
 	 */
 	private int abfrageVegetarisch (int vegetarisch, int sorte, ZutatenErsteller [] liste) {
-		
 		if (vegetarisch < liste[bestellung[sorte][0]].getVegetarisch()) {
 		vegetarisch = liste[bestellung[sorte][0]].getVegetarisch();
 		}
 		return vegetarisch;
-	}// END abfrageVegetarisch
+	}
 	
-	/**
-	 * Methode zum abfragen der Dicke
-	 * @return gibt die Dicke zurueck
-	 */
 	public int getBreite() {
 		return breite;
-	}// END getBreite
-
-	/**
-	 * Methode zum abfragen des Preises
-	 * @return gibt den Preis zurueck
-	 */
+	}
+	
 	public double getPreis() {
 		return preis;
-	}// END getPreis
+	}
 	
-	/**
-	 * Methode um abfragen zu koennen, ob der Burger vegetarisch, vegan oder aus Fleisch ist
-	 * @return gibt den passenden Begriff als String zurueck
-	 */
 	public String getVegetarisch () {
 		if (vegetarisch == 2) {		
 			return "vegan";
@@ -299,12 +280,12 @@ public class Zubereitung {
 		}else{
 			return "ERROR Zubereitung vegetarischer String";
 		}
-	}// END getVegetarisch
+		
+	}
 	
-}// END Zubereitung
-
-
+}
 /*
+
  * Name des Burgers individuell erstellbar
  * Geschmacksrichtung
  * vegan vegetarisch

@@ -26,7 +26,7 @@ public class Bratlinge extends ZutatenErsteller{
 		this.zubereitungsDauer = zubereitungsDauer;
 		this.geschmack = geschmack;
 		this.name = name;
-	}// END Bratling
+	}
 
 	/**
 	 * Methode zur Ueberpruefung der Eingabe zur Dicke/Menge des Bratlings
@@ -35,11 +35,11 @@ public class Bratlinge extends ZutatenErsteller{
 
 		System.out.println("Wie dick sind die Bratlinge (in mm)?");		
 		boolean korrekt = true;
-		
+
 		do {
 			int eingabe = StaticScanner.nextInt();
 			if (eingabe > 30) {
-				System.out.println("Extra Portionen können erst bei der Bestellung aufgegeben werden.");
+				System.out.println("Extra Portionen koennen bei der Bestellung aufgegeben werden, hier bitte noch nicht.");
 			}else if (eingabe < 5) {
 				System.out.println("So duenn ist doch kein Schwein");
 			}else{
@@ -47,7 +47,7 @@ public class Bratlinge extends ZutatenErsteller{
 				korrekt = bestaetigung();
 			}			
 		}while (korrekt);
-	}// END neueZutatBreite
+	}
 
 	/**
 	 * Methode getter zum weiter geben der dicke des Bratlings
@@ -55,6 +55,6 @@ public class Bratlinge extends ZutatenErsteller{
 	 */
 	public int getBreiteBratling() {
 		return breite;	
-	}// END getBreiteBratling
+	}
 
-}// END Bratling
+}

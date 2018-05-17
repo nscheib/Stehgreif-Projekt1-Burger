@@ -27,21 +27,18 @@ public class Karte {
 	/**
 	 * Methode gibt die Verschiedenen Eingabebefehlen mit der passenden Erklaerung aus
 	 */
-	public void ausgabe(){
-		
-		
+	public void ausgabe(){	
 		String text1 = "Mit <menu> können Sie sich die vollständigen Zutaten anzeigen lassen.";
 		String text2 = "Mit <bestellen> können Sie sich ihren eigenen Burger zusammenstellen, belegen und nach einer Wartezeit abholen lassen";
 		String text3 = "Mit <zubereiten> können Sie ihre Bestellung zubereiten";
 		String text4 = "Mit <mein burger> können Sie ihre derzeitige Burgerkreation abfragen";
-		
 		System.out.println(text1);
 		System.out.println(text2);
 		System.out.println(text3);		
 		System.out.println(text4);
 		String eingabe = Abfrage.eingabe();
 		verwaltung(eingabe);
-	}// END ausgabe
+	}
 
 	/**
 	 * Methode ruft unterschiedliche Funktionen auf, wie zb der aktuelle Status der Bestellung und gewaehlten Zutaten
@@ -65,7 +62,7 @@ public class Karte {
 			burgerAnzeigen(false);
 			ausgabe();
 		}
-	}// END verwaltung
+	}
 
 	/**
 	 * Methode zur Abfrage, ob eine weitere Bestellung getaetigt werden soll oder nicht
@@ -87,7 +84,7 @@ public class Karte {
 			antwort = false;
 		}	
 		return antwort;
-	}// END mehrBurger
+	}
 
 	/**
 	 * Methode gibt die Zutaten mit Name, Preisen uvm. aus
@@ -109,12 +106,8 @@ public class Karte {
 			}
 		}
 		System.out.println("\n");	
-	}// END menu
+	}
 
-	/**
-	 * Methode zeigt den ausgesuchten burger an mit Preis
-	 * @param endAusgabe zum abfragen, ob die Burger zum zubereiten bestellt wurden
-	 */
 	private void burgerAnzeigen(boolean endAusgabe){
 		Zutat bestellterBurger = new Zutat();
 		
@@ -130,10 +123,11 @@ public class Karte {
 				extra(gemueseListe, burger8, 2);
 				extra(salatListe, burger8, 3);
 				extra(saucenListe, burger8, 4);
-				preis8 = inDieKueche8.berechnePreis();
+				preis8 = (burger8[5][0]) / 100;
 				System.out.println("Preis: " + preis8);
 				if(endAusgabe == true) {
-					System.out.println(inDieKueche8.getBreite() + inDieKueche8.getVegetarisch());
+				System.out.println(inDieKueche8.getBreite() + inDieKueche8.getVegetarisch());
+				
 				}
 			case 7:
 				int burger7[][] = bestellterBurger.getBurger7();
@@ -142,11 +136,8 @@ public class Karte {
 				extra(gemueseListe, burger7, 2);
 				extra(salatListe, burger7, 3);
 				extra(saucenListe, burger7, 4);
-				preis7 = inDieKueche7.berechnePreis();
+				preis7 = (burger7[5][0]) / 100.0;
 				System.out.println("Preis: " + preis7);
-				if(endAusgabe == true) {
-					System.out.println(inDieKueche7.getBreite() + inDieKueche7.getVegetarisch());
-				}	
 			case 6:
 				int burger6[][] = bestellterBurger.getBurger6();
 				System.out.print(broetchenListe[burger6[0][0]].name);
@@ -154,11 +145,8 @@ public class Karte {
 				extra(gemueseListe, burger6, 2);
 				extra(salatListe, burger6, 3);
 				extra(saucenListe, burger6, 4);
-				preis6 = inDieKueche6.berechnePreis();
+				preis6 = (burger6[5][0]) / 100.0;
 				System.out.println("Preis: " + preis6);
-				if(endAusgabe == true) {
-					System.out.println(inDieKueche6.getBreite() + inDieKueche6.getVegetarisch());
-				}	
 			case 5:
 				int burger5[][] = bestellterBurger.getBurger5();
 				System.out.print(broetchenListe[burger5[0][0]].name);
@@ -166,11 +154,8 @@ public class Karte {
 				extra(gemueseListe, burger5, 2);
 				extra(salatListe, burger5, 3);
 				extra(saucenListe, burger5, 4);
-				preis5 = inDieKueche5.berechnePreis();
+				preis5 = (burger5[5][0]) / 100.0;
 				System.out.println("Preis: " + preis5);
-				if(endAusgabe == true) {
-					System.out.println(inDieKueche5.getBreite() + inDieKueche5.getVegetarisch());
-				}	
 			case 4:
 				int burger4[][] = bestellterBurger.getBurger4();
 				System.out.print(broetchenListe[burger4[0][0]].name);
@@ -178,11 +163,8 @@ public class Karte {
 				extra(gemueseListe, burger4, 2);
 				extra(salatListe, burger4, 3);
 				extra(saucenListe, burger4, 4);
-				preis4 = inDieKueche4.berechnePreis();
+				preis4 = (burger4[5][0]) / 100;
 				System.out.println("Preis: " + preis4);
-				if(endAusgabe == true) {
-					System.out.println(inDieKueche4.getBreite() + inDieKueche4.getVegetarisch());
-				}	
 			case 3: 
 				int burger3[][] = bestellterBurger.getBurger3();
 				System.out.print(broetchenListe[burger3[0][0]].name);
@@ -190,11 +172,8 @@ public class Karte {
 				extra(gemueseListe, burger3, 2);
 				extra(salatListe, burger3, 3);
 				extra(saucenListe, burger3, 4);
-				preis3 = inDieKueche3.berechnePreis();
+				preis3 = (burger3[5][0]) / 100;
 				System.out.println("Preis: " + preis3);
-				if(endAusgabe == true) {
-					System.out.println(inDieKueche3.getBreite() + inDieKueche3.getVegetarisch());
-				}
 			case 2: 
 				int burger2[][] = bestellterBurger.getBurger2();
 				System.out.print(broetchenListe[burger2[0][0]].name);
@@ -202,11 +181,8 @@ public class Karte {
 				extra(gemueseListe, burger2, 2);
 				extra(salatListe, burger2, 3);
 				extra(saucenListe, burger2, 4);
-				preis2 = inDieKueche2.berechnePreis();
+				preis2 = (burger2[5][0]) / 100;
 				System.out.println("Preis: " + preis2);
-				if(endAusgabe == true) {
-					System.out.println(inDieKueche2.getBreite() + inDieKueche2.getVegetarisch());
-				}
 			case 1:
 				int burger1[][] = bestellterBurger.getBurger1();	
 				System.out.print(broetchenListe[burger1[0][0]].name);
@@ -214,20 +190,14 @@ public class Karte {
 				extra(gemueseListe, burger1, 2);
 				extra(salatListe, burger1, 3);
 				extra(saucenListe, burger1, 4);
-				preis1 = inDieKueche1.berechnePreis();
+				preis1 = (burger1[5][0]) / 100.0;
 				System.out.println("Preis: " + preis1);
-				if(endAusgabe == true) {
-					System.out.println(inDieKueche1.getBreite() + inDieKueche1.getVegetarisch());
-				}
 			}	
 		}else {
 			System.out.println("ERROR Karte bestellte Burger ausgabe");
 		}
-	}// END burgerAnzeigen
+	}
 	
-	/**
-	 * Methode die den Burger "zubereitet" die Burger werden gespeichert und der Gesamtpreis wird verrechnet
-	 */
 	private void zubereitungDesBurgers() {
 		
 		switch (anzahlDerBurger) {
@@ -263,11 +233,8 @@ public class Karte {
 		burgerAnzeigen(true);
 		double preis = preis8 + preis7 + preis6 + preis5 + preis4 + preis3 + preis2 + preis1;
 		System.out.println("Alles zusammen kostet dich: " + preis);
-	}// END zubereitenDesBurgers
+	}
 	
-	/**
-	 * Methode die jeden einzelnen Burger speichert, danach kann abgefragt werden, ob noch ein weiterer zusammengestellt werden möchte
-	 */
 	private void bestellenDesBurgers() {
 		
 		switch (anzahlDerBurger) {
@@ -282,8 +249,6 @@ public class Karte {
 			Bestellung zusammensteller2 = new Bestellung();
 			inDieKueche2 = new Zubereitung (zusammensteller2.bestellBeginn());
 			anzahlDerBurger = 2;
-			//abschluss.setBreite(inDieKueche2.getBreite());
-			//abschluss.setPreis(inDieKueche2.getPreis());
 			if (mehrBurger()== true) {
 				break;	
 			}
@@ -327,28 +292,21 @@ public class Karte {
 			inDieKueche8 = new Zubereitung (zusammensteller8.bestellBeginn());
 			anzahlDerBurger = 8;
 		}
-	}// END bestellenDesBurgers
+		
+	}
 	
-	/**
-	 * Methode gibt die Zutaten mit Name, Preisen uvm. aus
-	 * @param liste gibt die verschiedenen Zutaten an die Methode weiter
-	 * @param lage gewaehlten Zutaten an die Methode weiter
-	 * @param zutatenliste gibt die gesamten Zuaten an die Methode weiter
-	 */
 	private void extra(ZutatenErsteller zutatenliste [], int liste[][], int lage) {
 		
 		if (liste[lage][1] == 2) {
 			System.out.print(zutatenliste[liste[1][0]].name);
 			System.out.print(" plus Extralage"+ "\t");
 		}else if(liste[lage][1] == 0) {
-			System.out.println(" - ");
+			System.out.print("\t  -  \t ");
 		}else if(liste[lage][1] == 1) {
-			System.out.println(zutatenliste[liste[1][0]].name);
+			System.out.print(zutatenliste[liste[1][0]].name);
 		}else {
 			System.out.println("ERROR Karte ausgabe extra");
 		}
-	}// END extra
-	
-}// END Karte
-
-
+		
+	}
+}

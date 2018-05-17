@@ -39,6 +39,6 @@ public class Abfrage {
 		}
 		while(eingabeControlle);
 		return eingegeben;
-	}// END eingabe
+	}
 	
-}// END Abfrage
+}
