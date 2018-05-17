@@ -26,7 +26,7 @@ public class Salate extends ZutatenErsteller{
 		this.zubereitungsDauer = zubereitungsDauer;
 		this.geschmack = geschmack;
 		this.name = name;
-	}// END Salate
+	}
 
 	/**
 	 * Methode zur Ueberpruefung der Eingabe zur Dicke/Menge des Salates
@@ -38,14 +38,14 @@ public class Salate extends ZutatenErsteller{
 		do {
 			int eingabe = StaticScanner.nextInt();
 			if (eingabe > 30) {
-				System.out.println("Extra Portionen können später zur Bestellung hinzugefügt werden.");
+				System.out.println("Extra Portionen koennen bei der Bestellung aufgegeben werden, hier bitte noch nicht.");
 			}else if (eingabe < 1) {
-				System.out.println("Wollen Sie durch das Blatt durchschauen können??");
+				System.out.println("Du halbierst das Blatt noch der laenge nach durch?!?");
 			}else{
 				System.out.println("Eine Schicht Salat ist " + eingabe + "dick.");
 				korrekt = bestaetigung();
 			}			
 		}while (korrekt);
-	}// END neueZutatBreite
+	}
 
-}// END Salate
+}

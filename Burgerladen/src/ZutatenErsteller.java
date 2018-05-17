@@ -24,38 +24,38 @@ public class ZutatenErsteller {
 
 		boolean korrekt = false;
 		do {
-			System.out.println("Wieviel kostet die neue Zutat?");
+			System.out.println("Wieviel kostet die neue Zutat dem Kunden?");
 			double eingabe = StaticScanner.nextDouble();
 			System.out.println("Die Zutat kostet " + eingabe); 
 			korrekt = bestaetigung();
 			preis = eingabe;
 		}while(korrekt);
-	}// END neueZutatPreis
+	}
 
 	/**
 	 * Methode zum speichern, ob die Zutat eine vegetarische, vegane oder fleischhaltige Zutat ist
 	 */
 	public void neueZutatVegetarisch() {
 
-		System.out.println("Ist die neue Zutat <vegan>, <vegetarisch> oder enthält sie <Fleisch>?");
+		System.out.println("Ist die neue Zutat <vegan>, <vegetarisch> oder enthaelt sie <fleisch>?");
 		boolean korrekt = true;
 		do {
 			String eingabe = StaticScanner.nextString();
 			if (eingabe.equals("vegan")) {
 				System.out.println("Die Zutat ist vegan");
 				korrekt = bestaetigung();
-				vegetarisch = 1;
+				vegetarisch = 2;
 			}else if (eingabe.equals("vegetarisch")) {
 				System.out.println("Die Zutat ist vegetarisch");
 				korrekt = bestaetigung();
-				vegetarisch = 2;
+				vegetarisch = 1;
 			}else if (eingabe.equals("fleisch")) {
 				System.out.println("Die Zutat ist mit Fleisch");
 				korrekt = bestaetigung();
-				vegetarisch = 3;
+				vegetarisch = 0;
 			}
 		}while(korrekt);
-	}// END neueZutatVegetarisch
+	}
 
 	/**
 	 * Methode zum eingeben und speichern der Dauer, wie die lange die Zubereitungsdauer ist
@@ -70,10 +70,11 @@ public class ZutatenErsteller {
 			korrekt = bestaetigung();
 			zubereitungsDauer = (eingabe / 100) * 80;									//Profibonus
 		}while(korrekt);
-	}// END neueZutatZeit
+		
+	}
 
 	/**
-	 * Methode um die Geschmacksrichtung festzulegen, ueberpruefen und diese zu speichern zu koennen
+	 * Methode um die Geschmacksriochtung festlegen zu koennen und diese zu speichern
 	 */
 	public void neueZutatGeschmack() {
 
@@ -117,7 +118,7 @@ public class ZutatenErsteller {
 			}			
 			korrekt = bestaetigung();		
 		}while(korrekt);	
-	}// END neueZutatGeschmack
+	}
 
 	/**
 	 * Methode zum festlegen und speichern des Zutatnamens
@@ -132,7 +133,7 @@ public class ZutatenErsteller {
 			korrekt = bestaetigung();
 			name = eingabe;
 		}while(korrekt);
-	}// END neueZutatName
+	}
 
 	/**
 	 * Methode zum abrufen des Geschmacks
@@ -140,7 +141,7 @@ public class ZutatenErsteller {
 	 */
 	public String[] getGeschmack() {
 		return geschmack;
-	}// END getGeschmack
+	}
 
 	/**
 	 * Methode zum abrufen des Burgertyps
@@ -148,7 +149,7 @@ public class ZutatenErsteller {
 	 */
 	public int getVegetarisch() {
 		return vegetarisch;		
-	}// END getVegetarisch
+	}
 
 	/**
 	 * Methode um die Eingaben zu bestaetigen
@@ -170,12 +171,8 @@ public class ZutatenErsteller {
 			antwort = false;
 		}	
 		return antwort;
-	} // END bestaetigung
+	} 
 	
-}// END 
-
-
-
 	/*
 	 * EXTRA
 	 * Zuteilung ob Broetchen oder Gemuese usw.
@@ -183,6 +180,8 @@ public class ZutatenErsteller {
 	 * vegan/vegetarisch
 	 * Menge
 	 * zubereitungs dauer und masse verlust (groesser kleiner)
+	 * 
 	 * breite
 	 * preis
 	 */
+}

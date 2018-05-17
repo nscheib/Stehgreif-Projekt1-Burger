@@ -26,7 +26,7 @@ public class Gemuese extends ZutatenErsteller{
 		this.zubereitungsDauer = zubereitungsDauer;
 		this.geschmack = geschmack;
 		this.name = name;
-	}// END  Gemuese
+	}
 
 	/**
 	 * Methode zur Ueberpruefung der Eingabe zur Dicke/Menge des Gemueses
@@ -46,15 +46,14 @@ public class Gemuese extends ZutatenErsteller{
 				korrekt = bestaetigung();
 			}			
 		}while (korrekt);
-	}// END neueZutatBreite
+	}
 	
-}// END Gemuese
-
-
-	/* 
-	 * Tomate Gurke Jalapenos Zwiebel
-	 * Anzahl der scheiben/ringe
+	
+	/*	Tomate Gurke Jalapenos Zwiebel
+	 * 	Anzahl der scheiben/ringe
 	 * Preis
 	 * breite
 	 * zubereitungs dauer
+	 * 
 	 */
+}

@@ -20,6 +20,6 @@ public class Saucen extends ZutatenErsteller{
 		this.zubereitungsDauer = zubereitungsDauer;
 		this.geschmack = geschmack;
 		this.name = name;
-	}// END Saucen
+	}
 	
-}// END Saucen
+}
