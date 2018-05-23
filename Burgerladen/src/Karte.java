@@ -26,10 +26,12 @@ public class Karte {
 		String text2 = "Mit <bestellen> können Sie sich ihren eigenen Burger zusammenstellen, belegen und nach einer Wartezeit abholen lassen";
 		String text3 = "Mit <zubereiten> können Sie ihre Bestellung zubereiten";
 		String text4 = "Mit <mein burger> können Sie ihre derzeitige Burgerkreation abfragen";
+		String text5 = "Mit <kasse> können Sie zur Kasse gehen";
 		System.out.println(text1);
 		System.out.println(text2);
 		System.out.println(text3);		
 		System.out.println(text4);
+		System.out.println(text5);
 		String eingabe = Abfrage.eingabe();
 		verwaltung(eingabe);
 	}
@@ -55,6 +57,8 @@ public class Karte {
 		}else if(eingabe.equals("mein burger")){														// auflistung der bisherigen Bestellung
 			burgerAnzeigen(false);
 			ausgabe();
+		}else if(eingabe.equals("kasse")){
+			System.out.println(" Vielen Dank für Ihre Bestellung. Sie können nun zur Kasse gehen. Guten Appetit!");
 		}
 	}
 
