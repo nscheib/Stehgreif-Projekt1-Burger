@@ -173,6 +173,8 @@ public class ZutatenErsteller {
 		return antwort;
 	} 
 	
+	
+	
 	/*
 	 * EXTRA
 	 * Zuteilung ob Broetchen oder Gemuese usw.

@@ -9,51 +9,69 @@ import de.hsrm.mi.prog.util.StaticScanner;
  */
 public class Bestellung {
 	
-	private Broetchen broetchenListe [] = Zutat.getBroetchenListe();
-	private Bratlinge bratlingListe [] = Zutat.getBratlingListe();
-	private Gemuese gemueseListe [] = Zutat.getGemueseListe();
-	private Salate salatListe [] = Zutat.getSalatListe();
-	private Saucen saucenListe [] = Zutat.getSaucenListe();
-	private ZutatenErsteller[] zusammenstellung;
+	private Broetchen broetchenListe [] = Zutaten.getBroetchenListe();
+	private Bratlinge bratlingListe [] = Zutaten.getBratlingListe();
+	private Gemuese gemueseListe [] = Zutaten.getGemueseListe();
+	private Salate salatListe [] = Zutaten.getSalatListe();
+	private Saucen saucenListe [] = Zutaten.getSaucenListe();
+	private ZutatenErsteller[] zusammenstellung = new ZutatenErsteller [8];
+	private Burger bestellterBurger = new Burger();
+	private int countDown;
 	
 
 	/**
 	 * Methode zum abfragen der Zutaten die auf dem Burger sollen und dem abspeichern der gewaehlten Zutaten in die Bestellliste
 	 */
-	public ZutatenErsteller[] bestellBeginn (ZutatenErsteller[] zusammenstellung, int anzahlDerBurger) {
+	public ZutatenErsteller[] bestellBeginn (int anzahlDerBurger) {
 
-		int komponente = 0;
+		int komponente = 0; 
+		countDown = 7;
 		ZutatenErsteller zutatenListe [];
+		
 		boolean ende = false;
 		do {
 			if (komponente == 0) {
 				zutatenListe = broetchenListe;
-				//komponente = burger(komponente, zutatenListe);
+				komponente = burger(komponente, zutatenListe, anzahlDerBurger);
 				// einfügen einer equals. "ende"
 			}else if(komponente == 1) {
 				zutatenListe = bratlingListe;
-				//komponente = burger(komponente, zutatenListe);			
+				komponente = burger(komponente, zutatenListe, anzahlDerBurger);			
 			}else if(komponente == 2) {
 				zutatenListe = gemueseListe;
-				//komponente = burger(komponente, zutatenListe);				
+				komponente = burger(komponente, zutatenListe, anzahlDerBurger);				
 			}else if(komponente == 3) {
 				zutatenListe = salatListe;
-				//komponente = burger(komponente, zutatenListe);			
+				komponente = burger(komponente, zutatenListe, anzahlDerBurger);			
 			}else if(komponente == 4) {
 				zutatenListe = saucenListe;
-				//komponente = burger(komponente, zutatenListe);						
+				komponente = burger(komponente, zutatenListe, anzahlDerBurger);						
 			}else {
 				System.out.println("ERROR Bestellung start");
 			}
-		}while (komponente >= 8 || ende == false); 		
+			
+			System.out.println("Sie koennen noch " + countDown + " Schichten waehlen.");
+		}while (komponente < 5 && ende == false && countDown != 0); 	
+		namensGebung();
 		burgerSpeichern();
 		return zusammenstellung;
 		}
 
+	private void namensGebung() {
+		boolean eingabe;
+		do {
+			System.out.println("Wie wollen sie ihren Burger benennen?");
+			String burgerName = StaticScanner.nextString();
+			System.out.println("Sind sie mit '" + burgerName + "' einverstanden?");
+			bestellterBurger.setName(burgerName);
+			eingabe = bestaetigung();
+		}while(eingabe);
+	}
+
 	/**
 	 * Methode dient der Abfrage fuer die Anzahl an Zutanten die man auf seinem Burger moechte
 	 */
-	public void extraLage(int komponente) {
+	public int extraLage(int komponente) {
 
 		System.out.println("Möchten Sie eine Extralarge?");
 		boolean eingabe;
@@ -61,6 +79,7 @@ public class Bestellung {
 		if (eingabe == true) {
 			komponente ++;
 		}	
+		return komponente;
 	}
 
 	/**
@@ -68,7 +87,7 @@ public class Bestellung {
 	 * @param zutatenListe gibt die Anzahl der gesamten Zutaten an die Methode weiter
 	 * @return extra gibt den Wert der Anzahl an ausgewaehlten Zutaten zurueck
 	 */
-	public int burger(int komponente, ZutatenErsteller zutatenListe[], int anzahlDerBurger) {
+	private int burger(int komponente, ZutatenErsteller zutatenListe[], int anzahlDerBurger) {
 
 		boolean korrekt = true;	
 		int eingabe = 0;
@@ -93,9 +112,12 @@ public class Bestellung {
 			}else if (eingabe + 1 < zutatenListe.length || eingabe > 0){					//bestaetigen einer erlaubten auswahl
 				System.out.println("Wollen Sie " + zutatenListe[eingabe - 1].name + " zu Ihrer Bestellung hinzufügen? ");
 				korrekt = bestaetigung();
-				zusammenstellung[komponente] = zutatenListe[eingabe - 1];
+				bestellterBurger.fuegeZutatHinzu(zutatenListe[eingabe - 1]);
+				countDown--;
 				if (komponente != 0) {
-					extraLage(komponente);													//extra Wurst gefaellig?
+					komponente = extraLage(komponente);													//extra Wurst gefaellig?
+				}else {
+					komponente++;
 				}
 			}else {
 				System.out.println("ERROR Bestellung: burger Zutaten abfrage ");
@@ -108,8 +130,8 @@ public class Bestellung {
 	 * Methode zum speichern der einzelnen Burger und speichern der Anzahl an Burgern
 	 */
 	public void burgerSpeichern() {
-		Zutat burger = new Zutat();
-		burger.setBurger(zusammenstellung);
+		Zutaten burger = new Zutaten();
+		burger.setBurger(bestellterBurger);
 	}
 	
 	/**

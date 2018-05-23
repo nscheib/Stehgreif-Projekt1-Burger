@@ -24,7 +24,7 @@ public class Start {
 		essen.ausgabe();
 		*/
 
-		Zutat zutat = new Zutat();
+		Zutaten zutat = new Zutaten();
 		zutat.vorgegebeneBroetchen();
 		zutat.vorgegebeneBratlinge();
 		zutat.vorgegebenesGemuese();

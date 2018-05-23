@@ -1,4 +1,6 @@
 // IMPORT --------------------------------------------//
+import java.util.ArrayList;
+
 import de.hsrm.mi.prog.util.StaticScanner;
 // IMPORT --------------------------------------------//
 
@@ -10,13 +12,12 @@ import de.hsrm.mi.prog.util.StaticScanner;
 public class Karte {
 
 	private int anzahlDerBurger = 1;
-	private Broetchen broetchenListe []= Zutat.getBroetchenListe();
-	private Bratlinge bratlingListe [] = Zutat.getBratlingListe();
-	private Gemuese gemueseListe [] = Zutat.getGemueseListe();
-	private Salate salatListe [] = Zutat.getSalatListe();
-	private Saucen saucenListe [] = Zutat.getSaucenListe(); 
-	private ZutatenErsteller [][] bisherigeBurger;
-	private Zubereitung inDieKueche;
+	private Broetchen broetchenListe []= Zutaten.getBroetchenListe();
+	private Bratlinge bratlingListe [] = Zutaten.getBratlingListe();
+	private Gemuese gemueseListe [] = Zutaten.getGemueseListe();
+	private Salate salatListe [] = Zutaten.getSalatListe();
+	private Saucen saucenListe [] = Zutaten.getSaucenListe();
+	Zutaten bestellteBurger = new Zutaten();
 	/**
 	 * Methode gibt die Verschiedenen Eingabebefehlen mit der passenden Erklaerung aus
 	 */
@@ -49,8 +50,8 @@ public class Karte {
 		}else if (eingabe.equals("bestellung") || eingabe.equals("bestellen")){
 			bestellenDesBurgers();
 			ausgabe();
-		}else if (eingabe.equals("zubereiten") || eingabe.equals("zubereitung")) {
-			zubereitungDesBurgers();		
+		}else if (eingabe.equals("zubereiten") || eingabe.equals("zubereitung")) {			
+			zubereitungDesBurgers(2);		
 		}else if(eingabe.equals("mein burger")){														// auflistung der bisherigen Bestellung
 			burgerAnzeigen(false);
 			ausgabe();
@@ -101,29 +102,24 @@ public class Karte {
 		System.out.println("\n");	
 	}
 
-	private void burgerAnzeigen(boolean endAusgabe){
-		Zutat bestellteBurger = new Zutat();
-		ZutatenErsteller[][] burger = bestellteBurger.getBurger();
-		boolean mengeDerZutaten = false;
-		
-		for(int i = 0; i < anzahlDerBurger; i++) {
-			while (mengeDerZutaten) {
-				int j = 0;
-				if (burger[i][j] == null) {
-					mengeDerZutaten = true;
-				}else {
-				System.out.print(burger[i][j].name);
-				j++;
-				}
-			}
-			mengeDerZutaten = false;
+	private void burgerAnzeigen(boolean endAusgabe){		
+		ArrayList<Burger> burgerListe = Zutaten.getBurger();
+		int i = 0;
+		for(Burger burger: burgerListe) {			
+			ArrayList<ZutatenErsteller> zutaten = burgerListe.get(i).getZutatenListe();
+			System.out.println(burgerListe.get(i).getName());
+			for (ZutatenErsteller zutatenListe : zutaten) {
+				System.out.println(zutatenListe.name);
+			}		
+			i++;
 		}
-		
 	}
+		
+
 	
 	private void zubereitungDesBurgers(int anzahlDerBurger) {
-		
-			
+		ArrayList<Burger> burgerListe = Zutaten.getBurger();
+		Zubereitung inDieKueche = new Zubereitung(burgerListe);
 		
 			
 		
@@ -133,13 +129,11 @@ public class Karte {
 	}
 	
 	private void bestellenDesBurgers() {
-		
-			Bestellung zusammensteller = new Bestellung();
-			ZutatenErsteller burger[] = new ZutatenErsteller [8] ;
-			burger = zusammensteller.bestellBeginn(burger, anzahlDerBurger); 
-			anzahlDerBurger ++;
-			if (mehrBurger()== true) {
-				bestellenDesBurgers();
-			}
+		Bestellung bestellen = new Bestellung();
+		bestellen.bestellBeginn(anzahlDerBurger);
+		anzahlDerBurger++;
+		if (mehrBurger()== false) {
+			bestellenDesBurgers();
+		}
 	}
 }
