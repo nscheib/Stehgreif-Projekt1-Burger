@@ -19,20 +19,23 @@ public class Start {
 		
 		/*Karte speiseKarte = new Karte();
 		speiseKarte.ausgabe();
+
 		SesamBroetchen essen = new SesamBroetchen();
 		essen.ausgabe();
 		*/
-		Zutat zutat = new Zutat();
+
+		Zutaten zutat = new Zutaten();
 		zutat.vorgegebeneBroetchen();
 		zutat.vorgegebeneBratlinge();
 		zutat.vorgegebenesGemuese();
 		zutat.vorgegebeneSalate();
+		zutat.vorgegebeneKaese();
 		zutat.vorgegebeneSaucen();		
 		String text1 = "Willkommen beim Burgermeister.\r\nBitte geben Sie Ihre Bestellung für Ihren Lieblingsburger ein.";
 		System.out.println(text1);
 		Karte willkommen = new Karte();
 		willkommen.ausgabe();
-		System.out.println("Wir wünschen ihnen einen guten Appetit.");
-	}// END main
+		System.out.println("Wir wuenschen ihnen einen guten Appetit.");
+	}
 
-}// END Start
+}
