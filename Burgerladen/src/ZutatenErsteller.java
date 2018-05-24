@@ -173,17 +173,4 @@ public abstract class ZutatenErsteller {
 		return antwort;
 	} 
 	
-	
-	
-	/*
-	 * EXTRA
-	 * Zuteilung ob Broetchen oder Gemuese usw.
-	 * Zutatenname
-	 * vegan/vegetarisch
-	 * Menge
-	 * zubereitungs dauer und masse verlust (groesser kleiner)
-	 * 
-	 * breite
-	 * preis
-	 */
 }

@@ -1,11 +1,20 @@
 import java.util.ArrayList;
 
+/**
+ *  Burger, um die einzelnen Bestandteile eines Burgers zu erhalten
+ *  @author Felix, Luca, Nick
+ *  @version 0.9
+ */
 public class Burger extends ZutatenErsteller{
 	
 	
 	private String endGeschmack;
 	private ArrayList<ZutatenErsteller> zutatenListe = new ArrayList<ZutatenErsteller>(); 
 	
+	/**
+	 * Methode
+	 * @param breite
+	 */
 	public void setBreite(int breite) {
 		this.breite = breite;
 	}
@@ -52,5 +61,17 @@ public class Burger extends ZutatenErsteller{
 			return this.vegetarisch;
 		}		
 	}
-
+	
+	public void zubereitenDesBurgers() {
+		for (int j = 0; j < zutatenListe.size(); j++) {				
+			if (zutatenListe.get(j) instanceof Bratlinge) {
+				Bratlinge bratling = (Bratlinge) zutatenListe.get(j);
+				bratling.eingehen();			
+			}else if (zutatenListe.get(j) instanceof Broetchen) {
+				Broetchen brot = (Broetchen) zutatenListe.get(j);
+				brot.aufgehen();
+			}
+		}	
+	}
+	
 }

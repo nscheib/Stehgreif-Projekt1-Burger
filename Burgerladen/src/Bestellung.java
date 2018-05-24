@@ -44,10 +44,10 @@ public class Bestellung {
 			}else if(komponente == 3) {
 				zutatenListe = salatListe;
 				komponente = burger(komponente, zutatenListe, anzahlDerBurger);			
-			/*}else if(komponente == 4) {
-				zutatenListe = kaeseListe;
-				komponente = burger(komponente, zutatenListe, anzahlDerBurger);		*/				
 			}else if(komponente == 4) {
+				zutatenListe = kaeseListe;
+				komponente = burger(komponente, zutatenListe, anzahlDerBurger);				
+			}else if(komponente == 5) {
 				zutatenListe = saucenListe;
 				komponente = burger(komponente, zutatenListe, anzahlDerBurger);						
 			}else {
@@ -55,7 +55,7 @@ public class Bestellung {
 			}
 			
 			System.out.println("Sie koennen noch " + countDown + " Schichten waehlen.");
-		}while (komponente < 5 && ende == false && countDown != 0); 	
+		}while (komponente < 6 && ende == false && countDown != 0); 	
 		namensGebung();
 		burgerSpeichern();
 		return zusammenstellung;

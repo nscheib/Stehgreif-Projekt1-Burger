@@ -56,5 +56,9 @@ public class Broetchen extends ZutatenErsteller{
 	public int getBreiteBroetchen() {
 		return breite;	
 	}
+
+	public void aufgehen() {
+		this.breite *= 1.02	;	
+	}
 	
 }

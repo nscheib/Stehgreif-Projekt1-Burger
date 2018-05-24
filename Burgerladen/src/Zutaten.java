@@ -12,7 +12,7 @@ public class Zutaten {
 	private static int anzahlSaucenSorten = 5;
 	private static int anzahlBratlingSorten = 5;
 	private static int anzahlGemueseSorten = 5;
-	private static int anzahlKaeseSorten = 3;
+	private static int anzahlKaeseSorten = 4;
 	private static ArrayList<Burger> burgerListe = new ArrayList<Burger>(); 
 	private static Broetchen [] broetchenListe = new Broetchen [anzahlBroetchenSorten];
 	private static Bratlinge [] bratlingListe = new Bratlinge [anzahlBratlingSorten];
@@ -114,17 +114,17 @@ public class Zutaten {
 	}
 	
 	public void vorgegebeneKaese() {
-		/*
-		String [] geschmackKaese1 = {"Sauer","Suess", "Normal"}; 
-		String [] geschmackKaese2 = {"Salzig"};  
-		String [] geschmackKaese3 = {"Sauer"};
-		Kaese kaese1 = new Kaese ();
-		Kaese kaese2 = new Kaese ();
-		Kaese kaese3 = new Kaese ();
-		kaeseListe[0] = kaese1;
-		kaeseListe[1] = kaese2;
-		kaeseListe[2] = kaese3;
-		*/
+		
+		String [] geschmacksandwichKaese = {"Sauer","Suess", "Normal"}; 
+		String [] geschmackgouda = {"Salzig"};  
+		String [] geschmackbergkaese = {"Sauer"};
+		//breite, preis, zubereitungsDauer, vegetarisch, geschmack, name
+		Kaese sandwichKaese = new Kaese (1, 0.09, 1, 2l, geschmacksandwichKaese, "Sandwich-Kaese");
+		Kaese gouda = new Kaese (1, 0.15, 1, 2l, geschmackgouda, "Gouda");
+		Kaese bergkaese = new Kaese (1, 0.28, 1, 2l, geschmackbergkaese, "Bergkaese");
+		kaeseListe[0] = sandwichKaese;
+		kaeseListe[1] = gouda;
+		kaeseListe[2] = bergkaese;
 	}
 
 	/**

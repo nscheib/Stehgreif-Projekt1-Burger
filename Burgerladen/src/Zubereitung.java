@@ -28,22 +28,16 @@ public class Zubereitung {
 	public void zubereiten (int anzahlDerBurger) {
 		//zeit preis breite
 		long start = System.currentTimeMillis(), zubereitungsDauer = 0, fertig = System.currentTimeMillis();
-		for (int i = 0; i <= bestellung.size()-1; i++) {
-			if (bestellung.get(i).zubereitungsDauer > bestellung.get(i + 1).zubereitungsDauer) {
-				zubereitungsDauer = bestellung.get(i).zubereitungsDauer;
-			}		
-			ArrayList<ZutatenErsteller> zutatenListe = new ArrayList <ZutatenErsteller> (bestellung.get(i).getZutatenListe()); 
-			for (int j = 1; j < zutatenListe.size(); j++) {				
-				if (zutatenListe.get(j) instanceof Bratlinge) {
-					zutatenListe.get(j).breite -= ((zutatenListe.get(j).zubereitungsDauer / 60) * ((zutatenListe.get(j).breite /100) * 3.5));				
-				}else if (zutatenListe.get(j) instanceof Broetchen) {
-					zutatenListe.get(j).breite += ((zutatenListe.get(j).zubereitungsDauer / 60) * ((zutatenListe.get(j).breite / 100) * 2));
-				}else{
-					System.out.println("ERROR Zubereitung keine Klasse");
-				}
-			}	
+		for (int i = 0; i < bestellung.size(); i++) {
+			if (bestellung.size() > 1) {
+				if (bestellung.get(i).zubereitungsDauer > bestellung.get(i + 1).zubereitungsDauer) {
+					zubereitungsDauer = bestellung.get(i).zubereitungsDauer;
+				}	
+			}
+			bestellung.get(i).zubereitenDesBurgers();
+			
 		}
-		System.out.println("Bitte haben sie einen Augenblick gedult");
+		System.out.println("Ihr Burger ist zubereitet");
 		while ((fertig - start) > zubereitungsDauer){
 		String eingabe = StaticScanner.nextString();
 		if (eingabe.equals("Mach hinne")) {   //(eingabeBestaetigung.equals("nein")
@@ -58,12 +52,11 @@ public class Zubereitung {
 	/**
 	 * Methode zum "verpacken" des Burgers und die damit verbundene Zeit
 	 */
-	
 	public String essenVerpacken(int anzahlDerBurger) {					//ruf diese Methode auf Nick 
 		if (zubereitet == true) {		
-			for (int i = 0; i <= bestellung.size(); i++) {
-				ArrayList<ZutatenErsteller> zutatenListe = new ArrayList <ZutatenErsteller> (bestellung.get(i).getZutatenListe());
-				for (int j = 0; j <= zutatenListe.size(); j++) {				
+			for (int i = 0; i < bestellung.size(); i++) {
+				ArrayList<ZutatenErsteller> zutatenListe = bestellung.get(i).getZutatenListe();
+				for (int j = 0; j < zutatenListe.size(); j++) {				
 					bestellung.get(i).breite += zutatenListe.get(j).breite;					
 				}
 				bestellung.get(i).setGeschmack(abfrageGeschmack (zutatenListe));
@@ -84,12 +77,11 @@ public class Zubereitung {
 	 * @param sorte setzt die benoetigte Geschmacksrichtung einer Zutat fest
 	 * @param liste setzt die Zutat fest
 	 */
-	
 	private String abfrageGeschmack (ArrayList<ZutatenErsteller> zutatenListe) {
 		int anzahlDerZutaten = 0;
 		int bitter = 0, fett = 0, sauer = 0, salzig = 0, scharf = 0, suess = 0, umami = 0, normal = 0;
 		String endGeschmack = "Ein wahrlich Individueller Burger";
-		while (anzahlDerZutaten < zutatenListe.get(anzahlDerZutaten).getGeschmack().length) {
+		while (anzahlDerZutaten < zutatenListe.size()) {
 			String[] geschmack =  zutatenListe.get(anzahlDerZutaten).getGeschmack();		
 			for (int i = 0; i < geschmack.length; i++) {
 				switch (geschmack[i]) {
@@ -148,10 +140,9 @@ public class Zubereitung {
 	 * @param liste setzt den Typ der Zutat fest
 	 * @return vegetarisch, gibt zurueck welcher Typ Burger gewaehlt wurde
 	 */
-	
-	public void ausgabe(){
+	private void ausgabe(){
 		double gesamtPreis = 0;
-		for (int i = 0; i <= bestellung.size(); i++) {
+		for (int i = 0; i < bestellung.size(); i++) {
 			System.out.print(bestellung.get(i).name + "\t" + bestellung.get(i).breite + "\t" + bestellung.get(i).preis + "\t");
 			if (bestellung.get(i).vegetarisch == 2) {
 				System.out.println("vegan");

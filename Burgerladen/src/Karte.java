@@ -11,14 +11,16 @@ import de.hsrm.mi.prog.util.StaticScanner;
  */
 public class Karte {
 
-	private int anzahlDerBurger = 1;
+	private int anzahlDerBurger = 0;
 	private Broetchen broetchenListe []= Zutaten.getBroetchenListe();
 	private Bratlinge bratlingListe [] = Zutaten.getBratlingListe();
 	private Gemuese gemueseListe [] = Zutaten.getGemueseListe();
 	private Salate salatListe [] = Zutaten.getSalatListe();
 	private Kaese kaeseListe [] = Zutaten.getKaeseListe();
 	private Saucen saucenListe [] = Zutaten.getSaucenListe();
-	Zutaten bestellteBurger = new Zutaten();
+	private Zutaten bestellteBurger = new Zutaten();
+	private Zubereitung inDieKueche;
+	
 	/**
 	 * Methode gibt die Verschiedenen Eingabebefehlen mit der passenden Erklaerung aus
 	 */
@@ -27,37 +29,56 @@ public class Karte {
 		String text2 = "Mit <bestellen> können Sie sich ihren eigenen Burger zusammenstellen, belegen und nach einer Wartezeit abholen lassen";
 		String text3 = "Mit <zubereiten> können Sie ihre Bestellung zubereiten";
 		String text4 = "Mit <mein burger> können Sie ihre derzeitige Burgerkreation abfragen";
+		String text5 = "Mit <kasse> können Sie ihren Burger bezahlen und mitnehmen";
 		System.out.println(text1);
 		System.out.println(text2);
 		System.out.println(text3);		
 		System.out.println(text4);
-		String eingabe = Abfrage.eingabe();
-		verwaltung(eingabe);
+		System.out.println(text5);
+		String eingabe;
+		do {
+		eingabe = Abfrage.eingabe();	
+		} while(verwaltung(eingabe));
 	}
 
 	/**
 	 * Methode ruft unterschiedliche Funktionen auf, wie zb der aktuelle Status der Bestellung und gewaehlten Zutaten
 	 * @param eingabe gibt den eingegeben Befehl an die Methode weiter
 	 */
-	public void verwaltung(String eingabe){
+	public boolean verwaltung(String eingabe){
+		boolean korrekt = true;
 		
-		if (eingabe.equals("menu")){		
-			menu(broetchenListe);		
-			menu(bratlingListe);	
-			menu(gemueseListe);			
-			menu(salatListe);
-			menu(kaeseListe);
-			menu(saucenListe);
-			ausgabe();
-		}else if (eingabe.equals("bestellung") || eingabe.equals("bestellen")){
-			bestellenDesBurgers();
-			ausgabe();
-		}else if (eingabe.equals("zubereiten") || eingabe.equals("zubereitung")) {			
-			zubereitungDesBurgers(2);		
-		}else if(eingabe.equals("mein burger")){														// auflistung der bisherigen Bestellung
-			burgerAnzeigen(false);
-			ausgabe();
-		}
+			if (eingabe.equals("menu")){		
+				menu(broetchenListe);		
+				menu(bratlingListe);	
+				menu(gemueseListe);			
+				menu(salatListe);
+				menu(kaeseListe);
+				menu(saucenListe);
+				ausgabe();
+			}else if (eingabe.equals("bestellung") || eingabe.equals("bestellen")){
+				korrekt = false;
+				bestellenDesBurgers();
+				ausgabe();
+			}else if ((eingabe.equals("zubereiten") || eingabe.equals("zubereitung")) && anzahlDerBurger != 0)	{							
+				korrekt = false; 
+				if (zubereitungDesBurgers(anzahlDerBurger) == true) {
+					ausgabe();
+				}
+			}else if ((eingabe.equals("zubereiten") || eingabe.equals("zubereitung")) && anzahlDerBurger == 0)	{	
+				System.out.println("Sie haben keinen Burger zum zubereiten... sad.");
+			}else if (eingabe.equals("mein burger")){														// auflistung der bisherigen Bestellung
+				burgerAnzeigen(false);
+				ausgabe();
+				korrekt = false;
+			}else if (eingabe.equals("kasse") && anzahlDerBurger != 0){			
+				inDieKueche.essenVerpacken(anzahlDerBurger);
+				System.out.println("Sie können nun ihren Burger nehmen und bezahlen.");
+				korrekt = false;
+			}else if (eingabe.equals("kasse") && anzahlDerBurger == 0) {
+				System.out.println("Sie haben keinen Burger zum bezahlen.");
+			}
+		return korrekt;
 	}
 
 	/**
@@ -118,22 +139,24 @@ public class Karte {
 	}
 		
 
-	
-	private void zubereitungDesBurgers(int anzahlDerBurger) {
+	/**
+	 * Methode speichert die Zutaten eines Burger für die zubereitung ab
+	 * @param anzahlDerBurger
+	 */
+	private boolean zubereitungDesBurgers(int anzahlDerBurger) {
 		ArrayList<Burger> burgerListe = Zutaten.getBurger();
-		Zubereitung inDieKueche = new Zubereitung(burgerListe);
-		
-			
-		
-		//burgerAnzeigen(true);
-		//double preis = 
-		//System.out.println("Alles zusammen kostet dich: " + preis);
+		inDieKueche = new Zubereitung(burgerListe);
+		inDieKueche.zubereiten(anzahlDerBurger);
+		return true;
 	}
 	
+	/**
+	 * Methode um einen Burger zu erstellen
+	 */
 	private void bestellenDesBurgers() {
 		Bestellung bestellen = new Bestellung();
-		bestellen.bestellBeginn(anzahlDerBurger);
 		anzahlDerBurger++;
+		bestellen.bestellBeginn(anzahlDerBurger);		
 		if (mehrBurger()== false) {
 			bestellenDesBurgers();
 		}

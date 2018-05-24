@@ -56,5 +56,10 @@ public class Bratlinge extends ZutatenErsteller{
 	public int getBreiteBratling() {
 		return breite;	
 	}
+	
+	public void eingehen() {
+		this.breite *= 0.965;
+	}
+	
 
 }
