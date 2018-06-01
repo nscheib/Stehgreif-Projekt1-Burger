@@ -33,12 +33,14 @@ public class Abfrage {
 				eingabeControlle = false;
 			}else if (eingegeben.equals("zubereiten")) {
 				eingabeControlle = false;
+			}else if(eingegeben.equals("kasse")){
+				eingabeControlle = false;
 			}else {
 				System.out.println("Keine gültiger Befehl. Bitte geben Sie einen korrekten Befehl ein ein!");
 			}
 		}
 		while(eingabeControlle);
 		return eingegeben;
-	}// END eingabe
+	}
 	
-}// END Abfrage
+}
