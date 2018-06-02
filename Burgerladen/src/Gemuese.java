@@ -48,12 +48,4 @@ public class Gemuese extends ZutatenErsteller{
 		}while (korrekt);
 	}
 	
-	
-	/*	Tomate Gurke Jalapenos Zwiebel
-	 * 	Anzahl der scheiben/ringe
-	 * Preis
-	 * breite
-	 * zubereitungs dauer
-	 * 
-	 */
 }
