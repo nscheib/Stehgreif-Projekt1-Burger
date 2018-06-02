@@ -77,7 +77,7 @@ public class Karte {
 				}else {
 					inDieKueche.essenVerpacken(anzahlDerBurger);
 					System.out.println("Sie können nun ihren Burger nehmen und bezahlen.");
-					korrekt = false;
+					korrekt = true;
 				}
 			}else if (eingabe.equals("kasse") && anzahlDerBurger == 0) {
 				System.out.println("Sie haben keinen Burger zum bezahlen.");
